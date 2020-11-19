@@ -6,7 +6,7 @@ typedef long long ll;
 using namespace std;
 
 class SizeZeroException: public exception { 
-	virtual const char* what() const throw() {
+	const char* what() const throw() {
 		return "SizeZeroException Occured";
 	}
 };
@@ -22,7 +22,7 @@ void func(int size) {
 		// when a base class object is created
 		// and the virtual function is overidden in the derived class
 		// the fuction of derived class will be called
-		cout << e.what(); 
+		cout << e.what(); // which is why the derived class what() is called
 	} 
 	cout << nl;
 	cout << "Fun 3" << nl;

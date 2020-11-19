@@ -9,7 +9,7 @@
 typedef int integer;
 using namespace std;
 
-enum day { mon, tue=3, wed, thu, fri, sat, sun };
+enum day { mon, tue=3, wed, thu, fri, sat=1, sun=mon+6 };
 
 int main() {
     integer num = 987;

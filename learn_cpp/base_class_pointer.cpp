@@ -17,13 +17,13 @@ public:
 class B : public A {
 public:
     void fun3() { 
-        cout << 3; 
+        cout << -3; 
     }
     void fun4() { 
-        cout << 4; 
+        cout << -4; 
     }
     void fun5() { 
-        cout << 1; 
+        cout << -5; 
     }
 };
 
@@ -37,5 +37,5 @@ int main() {
     a -> fun2(); // 2
     a -> fun3(); // 3
     // a -> fun4(); not possible
-    // a -> fun5();
+    // a -> fun5(); not possible
 }

@@ -17,17 +17,17 @@ float division(float a, float b) {
 
 int main() {
     int a,b;
-    cout<<"Enter two numbers:\n";
-    cin>>a>>b;
+    cout << "Enter two numbers:\n";
+    cin >> a >> b;
     try {
         float r = division(a, b);
-        cout<<"The quotient is: "<<r; // if an error occurs this line is skipped
-    } 
+        cout << "The quotient is: " << r; // if an error occurs this line is skipped
+    }
     catch(ZeroDivisionError e) {
-        cout<<e.what();
+        cout << e.what();
     }
     catch(...) {
-        cout<<"Some error occured! :-<";
+        cout << "Some error occured! :-<";
     }
     return 0;
 }

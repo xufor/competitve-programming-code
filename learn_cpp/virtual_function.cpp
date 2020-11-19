@@ -96,7 +96,7 @@ int main() {
     A *experiment_1 = new C();
     experiment_1 -> f1(); // f1-base -> coz its only present in base class
     // note that no error is given if not implemented in derived class
-    experiment_1 -> f2(); // f2-base
+    experiment_1 -> f2(); // f2-base -> compile time binding
     cout << endl;
 
     // E *experiment_2 = new E();
