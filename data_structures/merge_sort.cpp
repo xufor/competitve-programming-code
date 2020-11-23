@@ -35,7 +35,7 @@ void merge_sort(vector<int> &arr, int low, int high) {
 }
 
 int main() {
-    vector<int> arr = { 1, 7, 8, 4, 2, 5, 0, 9, 3, 6 };
+    vector<int> arr = {1, 7, 8, 4, 2, 5, 0, 9, 3, 6};
     merge_sort(arr, 0, arr.size() - 1);
     for(int x: arr) {
         cout << x << " ";

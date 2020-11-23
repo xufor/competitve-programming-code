@@ -35,7 +35,7 @@ void heap_sort(vector<int> &heap) {
 }
 
 int main() {
-    vector<int> heap = { 1,7,8,4,2,5,0,9,3,6 };
+    vector<int> heap = {1, 7, 8, 4, 2, 5, 0, 9, 3, 6};
     heap_sort(heap);
     for(int x: heap) {
         cout << x << " ";
