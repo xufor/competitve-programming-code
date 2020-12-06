@@ -11,7 +11,11 @@ public:
     }
 
     A() : A(1, 1) {}
-
+    // This feature means that you do not have to write
+    // A() {
+    //     this -> x = 1;
+    //     this -> y = 1;
+    // }
     void display() {
         cout << x << " " << y << '\n';
     }

@@ -1,19 +1,9 @@
-#include <bits/stdc++.h>
-#define nl '\n'
-#define sp " "
-#define md 1000000007
-typedef long long ll;           
+#include <bits/stdc++.h>     
 using namespace std;
 
 int main() {
-    #ifndef ONLINE_JUDGE
-        freopen("input.txt", "r", stdin);
-        freopen("output.txt", "w", stdout);
-    #endif
-    int n;
-    cin >> n;
-    while(n--) {
-        
-    }
-    return 0;
+    vector<int> v = {1,2,3,4,5,5,6,7,8,9,10};
+    auto it = v.begin();
+    cout << *it;
+    cout << *(it+1);
 }
