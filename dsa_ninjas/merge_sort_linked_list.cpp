@@ -36,6 +36,8 @@ Node* merge(Node *head1, Node *head2) {
     Node *final_head, *final_tail, *save;
     final_head = final_tail = (head1 -> data <= head2 -> data) ? head1 : head2;
     while(head1 != nullptr && head2 != nullptr) {
+        // the condition head1 != nullptr handles the conditon
+        // when any list exhausts while we are traversing it
         if(head1 != nullptr && (head1 -> data <= head2 -> data)) {
             save = head1;
             while(head1 -> data <= head2 -> data) {
@@ -86,6 +88,6 @@ Node* merge_sort(Node *head) {
 }
 
 int main() {
-    Node *head = new Node(4, new Node(1, new Node(3, new Node(2, new Node(0)))));
+    Node *head = new Node(4, new Node(1, new Node(-3, new Node(2, new Node(0)))));
     print_linked_list(merge_sort(head));
 }
