@@ -26,22 +26,22 @@ void print_linked_list(Node *head) {
     cout << nl;
 }
 
-Node* reverse(Node *current, Node *previous = nullptr) {
+Node* recursive_reverse(Node *current, Node *previous = nullptr) {
     if(current == nullptr) {
         return previous;
     }
-    Node *save = reverse(current -> next, current);
+    Node *save = recursive_reverse(current -> next, current);
     current -> next = previous;
     return save;
 }
 
-Node* reverse_improved(Node *current) {
+Node* recursive_reverse_improved(Node *current) {
     // the first check is for detecting empty linked list
     // the second check is essential
     if(current == nullptr || current -> next == nullptr) {
         return current;
     }
-    Node *save = reverse_improved(current -> next);
+    Node *save = recursive_reverse_improved(current -> next);
     current -> next -> next = current;
     // since we cannot know when we are dealing with
     // first node so we set nullptr for all
@@ -49,7 +49,23 @@ Node* reverse_improved(Node *current) {
     return save;
 }
 
+Node* iterative_reverse(Node *head) {
+    Node *a = nullptr, *b = nullptr, *c = head;
+    // as soon as c becomes nullptr all of the linked list is reversed
+    // b will be pointing at the last node when c becomes nullptr
+    // the pattern will be "Shift Then Reverse"
+    while(c != nullptr) { 
+        //----shifting the window----//
+        a = b;
+        b = c;
+        c = c -> next;
+        //----making the current node point to previous----//
+        b -> next = a;
+    }
+    return b;
+}
+
 int main() {
     Node *head = new Node(4, new Node(1, new Node(-3, new Node(2, new Node(0)))));
-    print_linked_list(reverse_improved(head));
+    print_linked_list(iterative_reverse(head));
 }
