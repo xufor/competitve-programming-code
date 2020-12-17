@@ -1,22 +1,8 @@
 #include <bits/stdc++.h>
+#include "linked_list_template.h"
 #define nl '\n'
 #define sp " "
 using namespace std;
-
-class Node {
-public:
-    int data;
-    Node *next;
-    Node() {
-        next = nullptr;
-    }
-    Node(int data) : Node() {
-        this -> data = data;
-    }
-    Node(int data, Node *next) : Node(data) {
-        this -> next = next;
-    }
-};
 
 int length(Node *head) {
     if(head == nullptr) {

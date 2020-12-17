@@ -1,30 +1,8 @@
 #include <bits/stdc++.h>
+#include "linked_list_template.h"
 #define nl '\n'
 #define sp " "
 using namespace std;
-
-class Node {
-public:
-    int data;
-    Node *next;
-    Node() {
-        next = nullptr;
-    }
-    Node(int data) : Node() {
-        this -> data = data;
-    }
-    Node(int data, Node *next) : Node(data) {
-        this -> next = next;
-    }
-};
-
-void print_linked_list(Node *head) {
-    while(head != nullptr) {
-        cout << head -> data << sp;
-        head = head -> next;
-    }
-    cout << nl;
-}
 
 Node* recursive_reverse(Node *current, Node *previous = nullptr) {
     if(current == nullptr) {
