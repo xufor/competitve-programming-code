@@ -38,11 +38,11 @@ void insert(int key) {
         cout << "Element " << key << " already present.\n";
     else {
         Node *fresh_node = new Node;
-        fresh_node->data = key;
-        if (key < target->data)
-            target->left_child = fresh_node;
+        fresh_node -> data = key;
+        if (key < target -> data)
+            target -> left_child = fresh_node;
         else
-            target->right_child = fresh_node;
+            target -> right_child = fresh_node;
     }
 }
 
@@ -55,21 +55,19 @@ void validate_bst(Node *p, int min, int max) {
             validate_bst(p -> right_child, p -> data, max);
     }
     else {
-        cout << "Node" << sp << p -> data<< sp << "is at invalid position." << nl;
+        cout << "Node" << sp << p -> data << sp << "is at invalid position." << nl;
     }
 }
 
 int main() {
     root = new Node;
-    root -> data = 50;
-    insert(30);
-    insert(20);
-    insert(35);
-    insert(55);
-    insert(60);
-    insert(53);
-    root -> left_child -> right_child -> data = 90;
-    root -> right_child -> data = 12;
+    root -> data = 4;
+    insert(2);
+    insert(6);
+    insert(1);
+    insert(3);
+    insert(5);
+    insert(7);
     validate_bst(root, -INT_MAX, INT_MAX);
 }
 
