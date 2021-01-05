@@ -2,3 +2,4 @@ executables/
 .vscode/
 input.txt
 output.txt
+experiments/
