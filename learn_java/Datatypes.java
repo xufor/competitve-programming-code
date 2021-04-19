@@ -1,6 +1,6 @@
 public class Datatypes {
     public static void main(String args[]) {
-        int v1 = 15; 
+        int v1 = 15;
         // byte-1, short-2, int-4, long-8
         // all have default value zero
         float v2 = 15.55f; // by default 15.55 means double
@@ -19,5 +19,10 @@ public class Datatypes {
         System.out.println(Integer.BYTES);
         System.out.println(Integer.MAX_VALUE);
         System.out.println(Integer.MIN_VALUE);
+        // predefined functions in Integer class to change base of an integer number
+        System.out.println(Integer.toBinaryString(31));
+        System.out.println(Integer.toBinaryString(-31));
+        System.out.println(Integer.toOctalString(31));
+        System.out.println(Integer.toHexString(31));
     }
 }
