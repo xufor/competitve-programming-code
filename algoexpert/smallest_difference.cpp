@@ -39,9 +39,3 @@ int main()
     cout << ans[0] << sp << ans[1];
     return 0;
 }
-
-
-
-
-
-
