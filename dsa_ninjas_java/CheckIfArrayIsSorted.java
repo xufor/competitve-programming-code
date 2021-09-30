@@ -17,8 +17,8 @@ public class CheckIfArrayIsSorted {
     }
 
     public static void main(String[] args) {
-        int[] a = {1,4,9,16,25};
-        int[] b = {1,4,19,16,25};
+        int[] a = { 1,4,9,16,25 };
+        int[] b = { 1,4,19,16,25 };
         System.out.println(check(a));
         System.out.println(check(b));
     }
