@@ -1,18 +1,15 @@
 public class CheckIfArrayIsSorted {
     public static boolean check(int[] arr, int currentIndex) {
-        if(currentIndex == arr.length) {
+        if(currentIndex == arr.length)
             return true;
-        }
-        if(arr[currentIndex] > arr[currentIndex-1]) {
+        if(arr[currentIndex] > arr[currentIndex-1])
             return check(arr, currentIndex + 1);
-        }
         return false;
     }
 
     public static boolean check(int arr[]) {
-        if(arr.length < 2) {
+        if(arr.length < 2)
             return true;
-        }
         return CheckIfArrayIsSorted.check(arr, 1);
     }
 

@@ -1,8 +1,7 @@
 public class XToThePowerOfN {
     public static int xToThePowerOfN(int x, int n) {
-        if(n == 0) {
+        if(n == 0)
             return 1;
-        }
         return x * xToThePowerOfN(x, n - 1);
     }
     // x ^ n = x * x ^ (n-1)

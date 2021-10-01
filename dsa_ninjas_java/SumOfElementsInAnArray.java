@@ -1,8 +1,7 @@
 public class SumOfElementsInAnArray {
     public static int sumOfElementsInAnArray(int[] arr, int current) {
-        if(current == arr.length) {
+        if(current == arr.length)
             return 0;
-        }
         return arr[current] + sumOfElementsInAnArray(arr, current + 1);
     }
 
