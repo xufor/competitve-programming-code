@@ -16,33 +16,31 @@ public class InsertAsteriskBetweenIdenticalCharacters {
     }
 
     public static String insert(String s) {
+        if(s.isEmpty())
+            return ""; // can also return s here
+        if(s.length() > 1 && s.charAt(0) == s.charAt(1))
+            return s.charAt(0) + "*" + insert(s.substring(1));
+        return s.charAt(0) + insert(s.substring(1));       
+    }
+
+    public static String insertWithCurrentAndResultString(String s) {
         return insert(s, "", 0);
     }
 
-    public static String insertWithNoResultString(String s) {
+    public static String insertWithCurrentButNoResultString(String s) {
         return insert(s, 0);
     }
 
+    public static String insertWithNoCurrentAndResultString(String s) {
+        return insert(s);
+    }
+
     public static void main(String[] args) {
-        System.out.println(insert(""));
-        System.out.println(insert("a"));
-        System.out.println(insert("ab"));
-        System.out.println(insert("pp"));
-        System.out.println(insert("app"));
-        System.out.println(insert("apap"));
-        System.out.println(insert("llll"));
-        System.out.println(insert("appapp"));
-        System.out.println(insert("llppappxx"));
-        System.out.println(insert("llllxxxx"));
-        System.out.println(insertWithNoResultString(""));
-        System.out.println(insertWithNoResultString("a"));
-        System.out.println(insertWithNoResultString("ab"));
-        System.out.println(insertWithNoResultString("pp"));
-        System.out.println(insertWithNoResultString("app"));
-        System.out.println(insertWithNoResultString("apap"));
-        System.out.println(insertWithNoResultString("llll"));
-        System.out.println(insertWithNoResultString("appapp"));
-        System.out.println(insertWithNoResultString("llppappxx"));
-        System.out.println(insertWithNoResultString("llllxxxx"));
+        String[] testStrings = { "", "a", "ab", "pp", "app", "llll", "appapp", "llppappxx", "llllxxxx" };
+        for(String x: testStrings) {
+            System.out.println(insertWithCurrentAndResultString(x));
+            System.out.println(insertWithCurrentButNoResultString(x));
+            System.out.println(insertWithNoCurrentAndResultString(x));
+        }
     }
 }

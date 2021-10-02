@@ -16,25 +16,31 @@ public class ReplacePiWithNumericValue {
     }
 
     public static String replace(String s) {
+        if(s.isEmpty())
+            return ""; // can also return s here
+        if(s.length() > 1 && s.startsWith("pi"))
+            return "3.14" + replace(s.substring(2));
+        return s.charAt(0) + replace(s.substring(1));       
+    }
+
+    public static String replaceWithCurrentAndResultString(String s) {
         return replace(s, "", 0);
     }
 
-    public static String replaceWithNoResultString(String s) {
+    public static String replaceWithCurrentButNoResultString(String s) {
         return replace(s, 0);
     }
 
+    public static String replaceWithNoCurrentAndResultString(String s) {
+        return replace(s);
+    }
+
     public static void main(String[] args) {
-        System.out.println(replace("ab"));
-        System.out.println(replace("pi"));
-        System.out.println(replace("api"));
-        System.out.println(replace("abpi"));
-        System.out.println(replace("piab"));
-        System.out.println(replace("abpiabpi"));
-        System.out.println(replaceWithNoResultString("ab"));
-        System.out.println(replaceWithNoResultString("pi"));
-        System.out.println(replaceWithNoResultString("api"));
-        System.out.println(replaceWithNoResultString("abpi"));
-        System.out.println(replaceWithNoResultString("piab"));
-        System.out.println(replaceWithNoResultString("abpiabpi"));
+        String testStrings[] = { "", "a", "ab", "pi", "abpi", "piab", "abpiabpi" };
+        for(String s: testStrings) {
+            System.out.println(replaceWithCurrentAndResultString(s));
+            System.out.println(replaceWithCurrentButNoResultString(s));
+            System.out.println(replaceWithNoCurrentAndResultString(s));
+        }
     }
 }
