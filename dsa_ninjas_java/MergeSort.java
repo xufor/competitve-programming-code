@@ -39,7 +39,7 @@ public class MergeSort {
     }
 
     public static void main(String args[]) {
-        int arr[] = { 9, 6, 2, 3,};
+        int arr[] = { 9, 6, 2, 3, 1, 0, 5, 4, 7, 8 };
         mergesort(arr);
         for(int x : arr)
             System.out.print(x + " ");
