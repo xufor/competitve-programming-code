@@ -1,16 +1,39 @@
+import java.util.Arrays;
+import java.util.LinkedList;
+
 public class TowerOfHanoi {
-    public static void tower(int n, String srce, String aux, String dest) {
-        if(n == 1) {
-            System.out.println(srce + " " + dest);
+    public static void toh(LinkedList<Integer> source, LinkedList<Integer> auxillary, LinkedList<Integer> destination,
+            int numberOfDisks) {
+
+        if (numberOfDisks == 0) {
             return;
         }
-        tower(n-1, srce, dest, aux);
-        System.out.println(srce + " " + dest);
-        tower(n-1, aux, srce, dest);
+        toh(source, destination, auxillary, numberOfDisks - 1);
+        destination.addFirst(source.removeFirst());
+        toh(auxillary, source, destination, numberOfDisks - 1);
     }
-    // n means number of discs to work upon
-    // t1, t2, t3 hold tower names
-    public static void main(String args[]) {
-        tower(2, "a", "b", "c");
+
+    public static void toh(char source, char auxillary, char destination,
+            int numberOfDisks) {
+
+        if (numberOfDisks == 0) {
+            return;
+        }
+        toh(source, destination, auxillary, numberOfDisks - 1);
+        System.out.println(source + " -> " + destination);
+        toh(auxillary, source, destination, numberOfDisks - 1);
+    }
+
+    public static void main(String[] args) {
+        LinkedList<Integer> towerA = new LinkedList<>();
+        LinkedList<Integer> towerB = new LinkedList<>();
+        LinkedList<Integer> towerC = new LinkedList<>();
+        towerA.addAll(Arrays.asList(new Integer[] { 1, 2, 3 }));
+        toh(towerA, towerB, towerC, towerA.size());
+        System.out.println(towerA);
+        System.out.println(towerB);
+        System.out.println(towerC);
+        
+        toh('A', 'B', 'C', 3);
     }
 }
