@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class ReplacePiWithValueInString {
     public static String replace(String source, int currentIndex) {
-        // uses 1 less parameter than the other solution
+        // requires 1 less argument to be passed while calling
         if (currentIndex >= source.length()) {
             return "";
         } else if (source.startsWith("pi", currentIndex)) {
@@ -21,18 +21,18 @@ public class ReplacePiWithValueInString {
         return replace(source, result + source.charAt(currentIndex), currentIndex + 1);
     }
 
-    public static String replace(String source) {
+    public static String replacev1(String source) {
         return replace(source, "", 0);
     }
 
-    public static String replaceOptimized(String source) {
+    public static String replacev2(String source) {
         return replace(source, 0);
     }
 
     public static void main(String[] args) {
         String[] testValues = { "The value of PI is pi", "Hellopi!!!", "Thelifeof pi", "Thelifeof pi ", "pi rocks",
                 "pi", "    pi", "popipopipi", "ipipipipip" };
-        Arrays.stream(testValues).forEach(s -> System.out.println(replace(s)));
-        Arrays.stream(testValues).forEach(s -> System.out.println(replaceOptimized(s)));
+        Arrays.stream(testValues).forEach(s -> System.out.println(replacev1(s)));
+        Arrays.stream(testValues).forEach(s -> System.out.println(replacev2(s)));
     }
 }
