@@ -1,4 +1,16 @@
+import java.util.Arrays;
+
 public class ReplacePiWithValueInString {
+    public static String replace(String source, int currentIndex) {
+        // uses 1 less parameter than the other solution
+        if (currentIndex >= source.length()) {
+            return "";
+        } else if (source.startsWith("pi", currentIndex)) {
+            return "3.14" + replace(source, currentIndex + 2);
+        }
+        return source.charAt(currentIndex) + replace(source, currentIndex + 1);
+    }
+
     public static String replace(String source, String result, int currentIndex) {
         if (currentIndex >= source.length()) {
             return result;
@@ -13,16 +25,14 @@ public class ReplacePiWithValueInString {
         return replace(source, "", 0);
     }
 
+    public static String replaceOptimized(String source) {
+        return replace(source, 0);
+    }
+
     public static void main(String[] args) {
-        System.out.println(replace("The value of PI is pi"));
-        System.out.println(replace("Hellopi!!!"));
-        System.out.println(replace("Thelifeof pi"));
-        System.out.println(replace("Thelifeof pi "));
-        System.out.println(replace("pi rocks"));
-        System.out.println(replace("pi"));
-        System.out.println(replace("    pi"));
-        System.out.println(replace(""));
-        System.out.println(replace("popipopipi"));
-        System.out.println(replace("ipipipipip"));
+        String[] testValues = { "The value of PI is pi", "Hellopi!!!", "Thelifeof pi", "Thelifeof pi ", "pi rocks",
+                "pi", "    pi", "popipopipi", "ipipipipip" };
+        Arrays.stream(testValues).forEach(s -> System.out.println(replace(s)));
+        Arrays.stream(testValues).forEach(s -> System.out.println(replaceOptimized(s)));
     }
 }

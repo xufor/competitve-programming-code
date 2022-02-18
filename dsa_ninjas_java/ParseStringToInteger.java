@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class ParseStringToInteger {
     public static int parse(String source, int result, int currentIndex) {
         if (currentIndex == source.length()) {
@@ -11,12 +13,7 @@ public class ParseStringToInteger {
     }
 
     public static void main(String[] args) {
-        System.out.println(parse("78965"));
-        System.out.println(parse("12321"));
-        System.out.println(parse("1221"));
-        System.out.println(parse("1721"));
-        System.out.println(parse("78488487"));
-        System.out.println(parse("7"));
-        System.out.println(parse(""));
+        String[] testValues = { "78965", "12321", "1221", "1721", "78488487", "7", ""};
+        Arrays.stream(testValues).forEach(s -> System.out.println(parse(s)));
     }
 }

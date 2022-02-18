@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class MultiplicationUsingAddtion {
     private static long multiply(long firstOperand, long secondOperand) {
         if (firstOperand == 0 || secondOperand == 0) {
@@ -7,10 +9,7 @@ public class MultiplicationUsingAddtion {
     }
 
     public static void main(String args[]) {
-        System.out.println(multiply(10, 23));
-        System.out.println(multiply(10, 0));
-        System.out.println(multiply(0, 19));
-        System.out.println(multiply(1, 19));
-        System.out.println(multiply(19, 1));
+        int[][] testValues = { { 10, 23 }, { 10, 0 }, { 0, 19 }, { 1, 19 }, { 19, 1 } };
+        Arrays.stream(testValues).forEach(v -> System.out.println(multiply(v[0], v[1])));
     }
 }

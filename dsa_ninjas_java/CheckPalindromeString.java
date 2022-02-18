@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 class CheckPalindromeString {
     public static boolean check(String s, int start, int end) {
         if (start >= end) {
@@ -13,12 +15,7 @@ class CheckPalindromeString {
     }
 
     public static void main(String[] args) {
-        System.out.println(check("78965"));
-        System.out.println(check("12321"));
-        System.out.println(check("1221"));
-        System.out.println(check("1721"));
-        System.out.println(check("78488487"));
-        System.out.println(check("7"));
-        System.out.println(check(""));
+        String[] testValues = { "78965", "12321", "1221", "1721", "78488487", "7", ""};
+        Arrays.stream(testValues).forEach(s -> System.out.println(check(s)));
     }
 }
