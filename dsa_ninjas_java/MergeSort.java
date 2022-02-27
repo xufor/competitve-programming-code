@@ -12,7 +12,7 @@ public class MergeSort {
         
         ListIterator<Integer> leftIterator = left.listIterator(), rightIterator = right.listIterator(), arrIterator = arr.listIterator(start);
         while(leftIterator.hasNext() && rightIterator.hasNext()) {
-            arrIterator.next();
+            arrIterator.next(); // this step is important as set replaces the value of last next/previous call
             int leftIteratorValue = leftIterator.next(), rightIteratorValue = rightIterator.next();
             if(leftIteratorValue < rightIteratorValue) {
                 arrIterator.set(leftIteratorValue);
@@ -25,12 +25,12 @@ public class MergeSort {
         }
 
         while(leftIterator.hasNext()) {
-            arrIterator.next();
+            arrIterator.next(); // this step is important as set replaces the value of last next/previous call
             arrIterator.set(leftIterator.next());
         }
 
         while(rightIterator.hasNext()) {
-            arrIterator.next();
+            arrIterator.next(); // this step is important as set replaces the value of last next/previous call
             arrIterator.set(rightIterator.next());
         }
     }
