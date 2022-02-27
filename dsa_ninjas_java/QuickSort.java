@@ -4,9 +4,9 @@ import java.util.Collections;
 
 public class QuickSort {
     public static int partition(ArrayList<Integer> arr, int start, int end) {
-        int pivot = arr.get(end), i = 0, j = 0;
+        int pivot = arr.get(end), i = start, j = start;
         while (i < end) {
-            if (arr.get(i) <= pivot) {
+            if (arr.get(i) < pivot) {
                 Collections.swap(arr, i, j);
                 j++;
             }
