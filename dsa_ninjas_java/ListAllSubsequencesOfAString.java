@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.stream.Collectors;
 
-public class ListOfSubsequences {
+public class ListAllSubsequencesOfAString {
     public static LinkedList<String> subsequences(String targetString) {
         if (targetString.isEmpty()) {
             return new LinkedList<String>(Arrays.asList(new String[] { "" }));
