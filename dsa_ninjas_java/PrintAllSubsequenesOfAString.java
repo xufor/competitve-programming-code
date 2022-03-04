@@ -1,6 +1,6 @@
 public class PrintAllSubsequenesOfAString {
     public static void subsequences(String source, String result) {
-        if(source.isEmpty()) {
+        if (source.isEmpty()) {
             System.out.println(result);
             return;
         }
