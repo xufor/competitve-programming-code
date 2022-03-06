@@ -1,26 +1,10 @@
 class Node<T> {
-    private T data;
-    private Node<T> next;
+    public T data;
+    public Node<T> next;
 
     Node(T data) {
         this.data = data;
         this.next = null;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
-
-    public Node<T> getNext() {
-        return next;
-    }
-
-    public void setNext(Node<T> next) {
-        this.next = next;
     }
 }
 
@@ -33,7 +17,7 @@ class LinkedList<T> {
 
     public void addFirst(T data) {
         Node<T> newNode = new Node<T>(data);
-        newNode.setNext(head);
+        newNode.next = head;
         head = newNode;
     }
 
@@ -43,16 +27,16 @@ class LinkedList<T> {
             head = newNode;
             return;
         }
-        while (temp.getNext() != null) {
-            temp = temp.getNext();
+        while (temp.next != null) {
+            temp = temp.next;
         }
-        temp.setNext(newNode);
+        temp.next = newNode;
     }
 
     public T deleteFirst() {
         if (head != null) {
-            T data = head.getData();
-            head = head.getNext();
+            T data = head.data;
+            head = head.next;
             return data;
         }
         return null;
@@ -61,15 +45,15 @@ class LinkedList<T> {
     public T deleteLast() {
         if (head != null) {
             Node<T> temp1 = null, temp2 = head;
-            while (temp2.getNext() != null) {
+            while (temp2.next != null) {
                 temp1 = temp2;
-                temp2 = temp2.getNext();
+                temp2 = temp2.next;
             }
-            T data = temp2.getData();
+            T data = temp2.data;
             if(temp1 == null) // only one element
                 head = null;
             else
-                temp1.setNext(null);
+                temp1.next = null;
             return data;
         }
         return null;
@@ -83,8 +67,8 @@ class LinkedList<T> {
         Node<T> temp = head;
         String linkedListString = "";
         while (temp != null) {
-            linkedListString += temp.getData() + " ";
-            temp = temp.getNext();
+            linkedListString += temp.data + " ";
+            temp = temp.next;
         }
         return linkedListString;
     }
