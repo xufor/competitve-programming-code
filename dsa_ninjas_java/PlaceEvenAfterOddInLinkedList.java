@@ -1,14 +1,28 @@
 public class PlaceEvenAfterOddInLinkedList {
     public static void evenAfterOdd(LinkedList<Integer> linkedList) {
-        Node<Integer> i = linkedList.head, j = linkedList.head;
-        while (i != null) {
-            if (i.data % 2 != 0) {
-                Integer temp = i.data;
-                i.data = j.data;
-                j.data = temp;
-                j = j.next;
+        Node<Integer> current = linkedList.head, swapCandidate = linkedList.head, currentPrevious = null,
+                swapCandidatePrevious = null;
+        while (current != null) {
+            if (current.data % 2 != 0) {
+                if (swapCandidate == linkedList.head)
+                    linkedList.head = current;
+
+                if (swapCandidatePrevious != null)
+                    swapCandidatePrevious.next = current;
+                if (currentPrevious != null)
+                    currentPrevious.next = swapCandidate;
+
+                Node<Integer> temp = swapCandidate.next;
+                swapCandidate.next = current.next;
+                current.next = temp;
+
+                // important steps
+                // the next swap candidate must be the next element to the resolved portion of the list
+                swapCandidatePrevious = current;
+                swapCandidate = current.next;
             }
-            i = i.next;
+            currentPrevious = current;
+            current = current.next;
         }
     }
 
