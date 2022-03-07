@@ -22,15 +22,15 @@ class LinkedList<T> {
     }
 
     public void addLast(T data) {
-        Node<T> newNode = new Node<T>(data), temp = head;
+        Node<T> newNode = new Node<T>(data), current = head;
         if (head == null) {
             head = newNode;
             return;
         }
-        while (temp.next != null) {
-            temp = temp.next;
+        while (current.next != null) {
+            current = current.next;
         }
-        temp.next = newNode;
+        current.next = newNode;
     }
 
     public T deleteFirst() {
@@ -44,16 +44,16 @@ class LinkedList<T> {
 
     public T deleteLast() {
         if (head != null) {
-            Node<T> temp1 = null, temp2 = head;
-            while (temp2.next != null) {
-                temp1 = temp2;
-                temp2 = temp2.next;
+            Node<T> previous = null, current = head;
+            while (current.next != null) {
+                previous = current;
+                current = current.next;
             }
-            T data = temp2.data;
-            if (temp1 == null) // only one element
+            T data = current.data;
+            if (previous == null) // only one element
                 head = null;
             else
-                temp1.next = null;
+                previous.next = null;
             return data;
         }
         return null;
@@ -63,15 +63,15 @@ class LinkedList<T> {
         if (index == 0) {
             addFirst(data);
         } else {
-            Node<T> temp = head, newNode = new Node<T>(data);
-            for (int i = 0; i < index - 1 && temp != null; i++) {
-                temp = temp.next;
+            Node<T> current = head, newNode = new Node<T>(data);
+            for (int i = 0; i < index - 1 && current != null; i++) {
+                current = current.next;
             }
-            if (temp == null) {
+            if (current == null) {
                 System.out.println("INVALID INDEX");
             } else {
-                newNode.next = temp.next;
-                temp.next = newNode;
+                newNode.next = current.next;
+                current.next = newNode;
             }
         }
     }
@@ -85,16 +85,16 @@ class LinkedList<T> {
             return deleteFirst();
         } else {
             T data;
-            Node<T> temp = head;
-            for (int i = 0; i < index - 1 && temp != null; i++) {
-                temp = temp.next;
+            Node<T> current = head;
+            for (int i = 0; i < index - 1 && current != null; i++) {
+                current = current.next;
             }
-            if (temp == null || temp.next == null) {
+            if (current == null || current.next == null) {
                 System.out.println("INVALID INDEX");
                 return null;
             } else {
-                data = temp.next.data;
-                temp.next = temp.next.next;
+                data = current.next.data;
+                current.next = current.next.next;
                 return data;
             }
         }
@@ -105,11 +105,11 @@ class LinkedList<T> {
         if (head == null) {
             return "[]";
         }
-        Node<T> temp = head;
+        Node<T> current = head;
         String linkedListString = "[";
-        while (temp != null) {
-            linkedListString += temp.data + (temp.next != null ? ", " : "");
-            temp = temp.next;
+        while (current != null) {
+            linkedListString += current.data + (current.next != null ? ", " : "");
+            current = current.next;
         }
         return linkedListString + "]";
     }
