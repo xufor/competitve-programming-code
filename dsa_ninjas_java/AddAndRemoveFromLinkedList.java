@@ -50,7 +50,7 @@ class LinkedList<T> {
                 temp2 = temp2.next;
             }
             T data = temp2.data;
-            if(temp1 == null) // only one element
+            if (temp1 == null) // only one element
                 head = null;
             else
                 temp1.next = null;
@@ -59,18 +59,59 @@ class LinkedList<T> {
         return null;
     }
 
+    public void insert(T data, long index) {
+        if (index == 0) {
+            addFirst(data);
+        } else {
+            Node<T> temp = head, newNode = new Node<T>(data);
+            for (int i = 0; i < index - 1 && temp != null; i++) {
+                temp = temp.next;
+            }
+            if (temp == null) {
+                System.out.println("INVALID INDEX");
+            } else {
+                newNode.next = temp.next;
+                temp.next = newNode;
+            }
+        }
+    }
+
+    public T delete(long index) {
+        if (index == 0) {
+            if(head == null) {
+                System.out.println("INVALID INDEX");
+                return null;
+            }
+            return deleteFirst();
+        } else {
+            T data;
+            Node<T> temp = head;
+            for (int i = 0; i < index - 1 && temp != null; i++) {
+                temp = temp.next;
+            }
+            if (temp == null || temp.next == null) {
+                System.out.println("INVALID INDEX");
+                return null;
+            } else {
+                data = temp.next.data;
+                temp.next = temp.next.next;
+                return data;
+            }
+        }
+    }
+
     @Override
     public String toString() {
         if (head == null) {
-            return "EMPTY";
+            return "[]";
         }
         Node<T> temp = head;
-        String linkedListString = "";
+        String linkedListString = "[";
         while (temp != null) {
-            linkedListString += temp.data + " ";
+            linkedListString += temp.data + (temp.next != null ? ", " : "");
             temp = temp.next;
         }
-        return linkedListString;
+        return linkedListString + "]";
     }
 }
 
@@ -95,9 +136,35 @@ public class AddAndRemoveFromLinkedList {
             System.out.println("DELETED: " + ll.deleteLast());
         }
         System.out.println(ll);
+        ll.insert("X", 0);
+        System.out.println(ll);
+        ll.insert("Y", 1);
+        System.out.println(ll);
+        ll.insert("E", 3);
+        System.out.println(ll);
+        ll.insert("Z", 1);
+        System.out.println(ll);
+        ll.insert("W", 0);
+        System.out.println(ll);
+        ll.insert("R", 3);
+        System.out.println(ll);
 
-        for (String str : new String[] { "A", "G", "E", "Z", "T" }) {
-            ll.addLast(str);
-        }
+        System.out.println("DELETED: " + ll.delete(0));
+        System.out.println(ll);
+
+        System.out.println("DELETED: " + ll.delete(3));
+        System.out.println(ll);
+
+        System.out.println("DELETED: " + ll.delete(3));
+        System.out.println(ll);
+
+        System.out.println("DELETED: " + ll.delete(1));
+        System.out.println(ll);
+
+        System.out.println("DELETED: " + ll.delete(1));
+        System.out.println(ll);
+
+        System.out.println("DELETED: " + ll.delete(0));
+        System.out.println(ll);
     }
 }
