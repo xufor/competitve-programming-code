@@ -9,7 +9,7 @@ class Node<T> {
 }
 
 class LinkedList<T> {
-    private Node<T> head;
+    public Node<T> head;
 
     LinkedList() {
         this.head = null;
