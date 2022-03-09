@@ -4,16 +4,16 @@ import java.util.Collections;
 
 public class QuickSort {
     public static int partition(ArrayList<Integer> arr, int start, int end) {
-        int pivot = arr.get(end), i = start, j = start;
-        while (i < end) {
-            if (arr.get(i) < pivot) {
-                Collections.swap(arr, i, j);
-                j++;
+        int pivot = arr.get(end), current = start, swapCandidate = start;
+        while (current < end) {
+            if (arr.get(current) < pivot) {
+                Collections.swap(arr, current, swapCandidate);
+                swapCandidate++;
             }
-            i++;
+            current++;
         }
-        Collections.swap(arr, j, end);
-        return j;
+        Collections.swap(arr, swapCandidate, end);
+        return swapCandidate;
     }
 
     public static void sort(ArrayList<Integer> arr, int start, int end) {
