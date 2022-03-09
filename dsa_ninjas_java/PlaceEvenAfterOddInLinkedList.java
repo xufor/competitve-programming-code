@@ -19,10 +19,15 @@ public class PlaceEvenAfterOddInLinkedList {
                 current.next = temp;
 
                 // tricky steps
-                // we can't write => swapCandidate = swapCandidate.next;
-                // since swapCandidate's next element prior to swap, is now current's next
+                // swince swapCandidate and current got swapped, we'll have to get next swapCandidate
+                // from current's next
                 swapCandidatePrevious = current;
                 swapCandidate = current.next;
+
+                // similar tricky steps
+                currentPrevious = swapCandidate;
+                current = swapCandidate.next;
+                continue;
             }
             currentPrevious = current;
             current = current.next;
