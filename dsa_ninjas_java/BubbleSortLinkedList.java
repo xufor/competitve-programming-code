@@ -27,7 +27,7 @@ public class BubbleSortLinkedList {
 
     public static void main(String[] args) {
         LinkedList<Integer> linkedList = new LinkedList<>();
-        Arrays.stream(new Integer[] { 5, 4, 1, 2 }).forEach(i -> linkedList.addLast(i));
+        Arrays.stream(new Integer[] { 5, 4, 1, 2, 3 }).forEach(i -> linkedList.addLast(i));
         sort(linkedList);
         System.out.println(linkedList);
     }
