@@ -100,6 +100,17 @@ class LinkedList<T> {
         }
     }
 
+    public long length(Node<T> head) {
+        if(head == null) {
+            return 0;
+        }
+        return 1 + length(head.next);
+    }
+
+    public long length() {
+        return length(this.head);
+    }
+
     @Override
     public String toString() {
         if (head == null) {
