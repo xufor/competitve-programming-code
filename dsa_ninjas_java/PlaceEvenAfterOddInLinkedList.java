@@ -2,31 +2,31 @@ import java.util.Arrays;
 
 public class PlaceEvenAfterOddInLinkedList {
     public static void evenAfterOdd(LinkedList<Integer> linkedList) {
-        Node<Integer> current = linkedList.head, swapCandidate = linkedList.head, currentPrevious = null,
-                swapCandidatePrevious = null;
+        Node<Integer> current = linkedList.head, unfit = linkedList.head, currentPrevious = null,
+                unfitPrevious = null;
         while (current != null) {
             if (current.data % 2 != 0) {
-                if (swapCandidate == linkedList.head)
+                if (unfit == linkedList.head)
                     linkedList.head = current;
 
-                if (swapCandidatePrevious != null)
-                    swapCandidatePrevious.next = current;
+                if (unfitPrevious != null)
+                    unfitPrevious.next = current;
                 if (currentPrevious != null)
-                    currentPrevious.next = swapCandidate;
+                    currentPrevious.next = unfit;
 
-                Node<Integer> temp = swapCandidate.next;
-                swapCandidate.next = current.next;
+                Node<Integer> temp = unfit.next;
+                unfit.next = current.next;
                 current.next = temp;
 
                 // tricky steps
-                // swince swapCandidate and current got swapped, we'll have to get next swapCandidate
+                // swince unfit and current got swapped, we'll have to get next unfit
                 // from current's next
-                swapCandidatePrevious = current;
-                swapCandidate = current.next;
+                unfitPrevious = current;
+                unfit = current.next;
 
                 // similar tricky steps
-                currentPrevious = swapCandidate;
-                current = swapCandidate.next;
+                currentPrevious = unfit;
+                current = unfit.next;
                 continue;
             }
             currentPrevious = current;
