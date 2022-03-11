@@ -6,11 +6,11 @@ public class PlaceEvenAfterOddInLinkedList {
                 unfitPrevious = null;
         while (current != null) {
             if (current.data % 2 != 0) {
-                if (unfit == linkedList.head)
-                    linkedList.head = current;
-
                 if (unfitPrevious != null)
                     unfitPrevious.next = current;
+                else
+                    linkedList.head = current;
+
                 if (currentPrevious != null)
                     currentPrevious.next = unfit;
 
