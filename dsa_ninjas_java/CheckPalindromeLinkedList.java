@@ -20,9 +20,9 @@ public class CheckPalindromeLinkedList {
                 { 3, 2, 2 },
                 { 2, 2 },
                 { 2 },
-                { 2 }
+                {}
         };
-        for(Integer[] test: testCases) {
+        for (Integer[] test : testCases) {
             System.out.println(palindrome(LinkedList.contruct(test)));
         }
     }
