@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class CheckPalindromeLinkedList {
     public static Node<Integer> palindrome(Node<Integer> left, Node<Integer> right) {
         if (right == null)
@@ -16,8 +14,16 @@ public class CheckPalindromeLinkedList {
     }
 
     public static void main(String[] args) {
-        LinkedList<Integer> linkedList = new LinkedList<>();
-        Arrays.stream(new Integer[] { 3, 2, 1, 2, 3 }).forEach(i -> linkedList.addLast(i));
-        System.out.println(palindrome(linkedList));
+        Integer[][] testCases = {
+                { 3, 2, 1, 2, 3 },
+                { 3, 2, 2, 3 },
+                { 3, 2, 2 },
+                { 2, 2 },
+                { 2 },
+                { 2 }
+        };
+        for(Integer[] test: testCases) {
+            System.out.println(palindrome(LinkedList.contruct(test)));
+        }
     }
 }

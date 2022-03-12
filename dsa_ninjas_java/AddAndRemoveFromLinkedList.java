@@ -111,6 +111,14 @@ class LinkedList<T> {
         return length(this.head);
     }
 
+    public static <Z> LinkedList<Z> contruct(Z[] dataArray) {
+        LinkedList<Z> newLinkedList = new LinkedList<>();
+        for(Z data: dataArray) {
+            newLinkedList.addLast(data);
+        }
+        return newLinkedList;
+    }
+
     @Override
     public String toString() {
         if (head == null) {
