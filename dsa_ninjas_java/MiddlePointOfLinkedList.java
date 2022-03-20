@@ -1,6 +1,9 @@
 public class MiddlePointOfLinkedList<T> extends LinkedList<T> {
     public static <T> Node<T> middle(Node<T> slowPointer, Node<T> fastPointer) {
-        while (fastPointer != null && fastPointer.next != null && fastPointer.next.next != null) {
+        if(fastPointer == null) {
+            return null;
+        }
+        while (fastPointer.next != null && fastPointer.next.next != null) {
             fastPointer = fastPointer.next.next;
             slowPointer = slowPointer.next;
         }
