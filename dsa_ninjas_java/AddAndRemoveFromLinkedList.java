@@ -132,6 +132,15 @@ class LinkedList<T> {
         }
         return linkedListString + "]";
     }
+
+    public static <T> void print(Node<T> head) {
+        System.out.print("[");
+        while(head != null) {
+            System.out.print(head.data + (head.next != null ? ", " : "]"));
+            head = head.next;
+        }
+        System.out.println();
+    }
 }
 
 public class AddAndRemoveFromLinkedList {

@@ -17,7 +17,7 @@ public class MergeTwoSortedLinkedLists {
                     pointer1 = pointer1.next;
                 } else {
                     if (finalHead == null && finalTail == null) {
-                        finalHead = finalTail = pointer1;
+                        finalHead = finalTail = pointer2;
                     } else {
                         finalTail.next = pointer2;
                         finalTail = pointer2;
@@ -36,28 +36,13 @@ public class MergeTwoSortedLinkedLists {
     }
 
     public static void main(String[] args) {
-        LinkedList<Integer> linkedList1 = LinkedList.contruct(new Integer[] { 1, 3, 5, 8, 10 });
-        LinkedList<Integer> linkedList2 = LinkedList.contruct(new Integer[] { 4, 6, 9, 10 });
+        LinkedList.print(merge(LinkedList.contruct(new Integer[] { 1, 3, 5, 8, 10 }).head,
+                LinkedList.contruct(new Integer[] { 4, 6, 9, 10 }).head));
 
-        linkedList1.head = merge(linkedList1.head, linkedList2.head);
-        System.out.println(linkedList1);
+        LinkedList.print(merge(LinkedList.contruct(new Integer[] { 1 }).head,
+                LinkedList.contruct(new Integer[] { 0, 2 }).head));
 
-        linkedList1 = LinkedList.contruct(new Integer[] { 1 });
-        linkedList2 = LinkedList.contruct(new Integer[] { 2, 3 });
-
-        linkedList1.head = merge(linkedList1.head, linkedList2.head);
-        System.out.println(linkedList1);
-
-        linkedList1 = LinkedList.contruct(new Integer[] {});
-        linkedList2 = LinkedList.contruct(new Integer[] { 2, 3 });
-
-        linkedList1.head = merge(linkedList1.head, linkedList2.head);
-        System.out.println(linkedList1);
-
-        linkedList1 = LinkedList.contruct(new Integer[] {});
-        linkedList2 = LinkedList.contruct(new Integer[] {});
-
-        linkedList1.head = merge(linkedList1.head, linkedList2.head);
-        System.out.println(linkedList1);
+        LinkedList.print(merge(LinkedList.contruct(new Integer[] { }).head,
+                LinkedList.contruct(new Integer[] { 4 }).head));
     }
 }
