@@ -78,7 +78,7 @@ class LinkedList<T> {
 
     public T delete(long index) {
         if (index == 0) {
-            if(head == null) {
+            if (head == null) {
                 System.out.println("INVALID INDEX");
                 return null;
             }
@@ -101,7 +101,7 @@ class LinkedList<T> {
     }
 
     public long length(Node<T> head) {
-        if(head == null) {
+        if (head == null) {
             return 0;
         }
         return 1 + length(head.next);
@@ -113,7 +113,7 @@ class LinkedList<T> {
 
     public static <Z> LinkedList<Z> contruct(Z[] dataArray) {
         LinkedList<Z> newLinkedList = new LinkedList<>();
-        for(Z data: dataArray) {
+        for (Z data : dataArray) {
             newLinkedList.addLast(data);
         }
         return newLinkedList;
@@ -134,8 +134,12 @@ class LinkedList<T> {
     }
 
     public static <T> void print(Node<T> head) {
+        if (head == null) {
+            System.out.println("[]");
+            return;
+        }
         System.out.print("[");
-        while(head != null) {
+        while (head != null) {
             System.out.print(head.data + (head.next != null ? ", " : "]"));
             head = head.next;
         }

@@ -1,6 +1,6 @@
 public class MiddlePointOfLinkedList<T> extends LinkedList<T> {
     public static <T> Node<T> middle(Node<T> slowPointer, Node<T> fastPointer) {
-        if(fastPointer == null) {
+        if (fastPointer == null) {
             return null;
         }
         while (fastPointer.next != null && fastPointer.next.next != null) {
@@ -24,6 +24,9 @@ public class MiddlePointOfLinkedList<T> extends LinkedList<T> {
         System.out
                 .println(MiddlePointOfLinkedList
                         .middle(LinkedList.contruct(new Integer[] { 1 }).head).data);
+        System.out
+                .println(MiddlePointOfLinkedList
+                        .middle(LinkedList.contruct(new Integer[] { 5, 6 }).head).data);
         System.out
                 .println(MiddlePointOfLinkedList
                         .middle(LinkedList.contruct(new Integer[] {}).head));
