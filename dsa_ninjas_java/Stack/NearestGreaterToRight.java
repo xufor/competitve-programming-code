@@ -6,7 +6,7 @@ public class NearestGreaterToRight {
     public static ArrayList<Integer> nearestGreaterToRight(Integer[] input) {
         Stack<Integer> stack = new Stack<>();
         ArrayList<Integer> result = new ArrayList<>();
-        for (Integer currentIndex = input.length - 1; currentIndex > 0; currentIndex--) {
+        for (Integer currentIndex = input.length - 1; currentIndex >= 0; currentIndex--) {
             while (!stack.empty() && stack.peek() <= input[currentIndex]) {
                 stack.pop();
             }
