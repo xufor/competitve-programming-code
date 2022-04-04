@@ -16,7 +16,7 @@ public class PrintAllNodesAtDepthK {
         //               /   \      
         //              2     3         DEPTH = 1
         //            / | \    \
-        //           3  4  5    7       DEPTH = 2
+        //           4  5  6    7       DEPTH = 2
         //                       \
         //                        8     DEPTH = 3
         //                         \
