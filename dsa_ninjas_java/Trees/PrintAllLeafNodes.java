@@ -17,7 +17,7 @@ public class PrintAllLeafNodes {
         //              2     3
         //            / | \    \
         //           4  5  6    7
-        //          (L) (L) (L)  \
+        //         (L) (L) (L)   \
         //                        8
         //                         \
         //                          9
