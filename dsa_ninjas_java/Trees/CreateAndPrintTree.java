@@ -11,11 +11,6 @@ class TreeNode<T> {
         this.data = data;
         this.children = new ArrayList<>();
     }
-
-    @Override
-    public String toString() {
-        return data.toString();
-    }
 }
 
 class Tree {
@@ -46,11 +41,12 @@ class Tree {
         pendingNodes.add(root);
         while (!pendingNodes.isEmpty()) {
             TreeNode<Integer> nodeToBeProcessed = pendingNodes.remove();
-            System.out.println(nodeToBeProcessed);
+            System.out.print(nodeToBeProcessed.data + " ");
             for (TreeNode<Integer> childNode : nodeToBeProcessed.children) {
                 pendingNodes.add(childNode);
             }
         }
+        System.out.println();
     }
 }
 
