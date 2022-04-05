@@ -13,12 +13,12 @@ class TreeNode<T> {
     }
 }
 
-class Tree {
-    public TreeNode<Integer> root;
+class Tree<T> {
+    public TreeNode<T> root;
     public static Scanner scnr = new Scanner(System.in);
 
-    public static Tree construct() {
-        Tree tree = new Tree();
+    public static Tree<Integer> construct() {
+        Tree<Integer> tree = new Tree<Integer>();
         Queue<TreeNode<Integer>> pendingNodes = new LinkedList<>();
         tree.root = new TreeNode<Integer>(scnr.nextInt());
         pendingNodes.add(tree.root);
@@ -37,12 +37,12 @@ class Tree {
     public void printLevelOrder() {
         if (root == null)
             return;
-        Queue<TreeNode<Integer>> pendingNodes = new LinkedList<>();
+        Queue<TreeNode<T>> pendingNodes = new LinkedList<>();
         pendingNodes.add(root);
         while (!pendingNodes.isEmpty()) {
-            TreeNode<Integer> nodeToBeProcessed = pendingNodes.remove();
+            TreeNode<T> nodeToBeProcessed = pendingNodes.remove();
             System.out.print(nodeToBeProcessed.data + " ");
-            for (TreeNode<Integer> childNode : nodeToBeProcessed.children) {
+            for (TreeNode<T> childNode : nodeToBeProcessed.children) {
                 pendingNodes.add(childNode);
             }
         }
@@ -53,7 +53,7 @@ class Tree {
 public class CreateAndPrintTree {
     public static void main(String[] args) {
         // 1 2 2 3 3 4 5 6 1 7 0 0 0 0 0
-        Tree tree = Tree.construct();
+        Tree<Integer> tree = Tree.construct();
         tree.printLevelOrder();
     }
 }

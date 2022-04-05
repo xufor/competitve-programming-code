@@ -11,7 +11,7 @@ public class FindLargestData {
     }
 
     public static void main(String[] args) {
-        Tree tree = Tree.construct();
+        Tree<Integer> tree = Tree.construct();
         System.out.println(findLargest(tree.root));
     }
 }

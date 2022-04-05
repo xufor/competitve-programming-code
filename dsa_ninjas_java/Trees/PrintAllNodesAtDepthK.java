@@ -10,7 +10,7 @@ public class PrintAllNodesAtDepthK {
     }
 
     public static void main(String[] args) {
-        Tree tree = Tree.construct();
+        Tree<Integer> tree = Tree.construct();
         // 1 2 2 3 3 4 5 6 1 7 0 0 0 1 8 1 9 0
         //                 1            DEPTH = 0
         //               /   \      

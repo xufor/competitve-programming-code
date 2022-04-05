@@ -9,7 +9,7 @@ public class FindNumberOfNodes {
         return totalChildNodes;
     }
     public static void main(String[] args) {
-        Tree tree = Tree.construct();
+        Tree<Integer> tree = Tree.construct();
         System.out.println(count(tree.root));
     }
 }
