@@ -30,7 +30,7 @@ class BinaryTree<T> {
         return binaryTree;
     }
 
-    private void printInOrder(BinaryTreeNode<T> root) {
+    public static <Z> void printInOrder(BinaryTreeNode<Z> root) {
         if(root != null) {
             printInOrder(root.left);
             System.out.print(root.data + " ");
@@ -38,7 +38,7 @@ class BinaryTree<T> {
         }
     }
 
-    private void printPostOrder(BinaryTreeNode<T> root) {
+    public static <Z> void printPostOrder(BinaryTreeNode<Z> root) {
         if(root != null) {
             printPostOrder(root.left);
             printPostOrder(root.right);
@@ -46,24 +46,12 @@ class BinaryTree<T> {
         }
     }
 
-    private void printPreOrder(BinaryTreeNode<T> root) {
+    public static <Z> void printPreOrder(BinaryTreeNode<Z> root) {
         if(root != null) {
             System.out.print(root.data + " ");
             printPreOrder(root.left);
             printPreOrder(root.right);
         }
-    }
-
-    public void printInOrder() {
-        printInOrder(this.root);
-    }
-
-    public void printPostOrder() {
-        printPostOrder(this.root);
-    }
-
-    public void printPreOrder() {
-        printPreOrder(this.root);
     }
 }
 
@@ -80,10 +68,10 @@ public class CreateAndPrintBinaryTree {
         //             / \    \
         //            7   9    13
         BinaryTree<Integer> binaryTree = BinaryTree.construct();
-        binaryTree.printInOrder();
+        BinaryTree.printInOrder(binaryTree.root);
         System.out.println();
-        binaryTree.printPostOrder();
+        BinaryTree.printPreOrder(binaryTree.root);
         System.out.println();
-        binaryTree.printPreOrder();
+        BinaryTree.printPostOrder(binaryTree.root);
     }
 }
