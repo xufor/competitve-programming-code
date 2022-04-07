@@ -10,7 +10,7 @@ public class ConstructTreeFromPreorderAndInorderOptimized {
         int rootIndexInInorder = inorder.indexOf(preorder.get(preorderStart));
         
         root.left = construct(inorder, preorder, inorderStart, rootIndexInInorder - 1, preorderStart + 1, rootIndexInInorder);
-        root.right = construct(inorder, preorder, rootIndexInInorder + 1, inorderEnd, preorderStart + (rootIndexInInorder - inorderStart) + 1, preorderEnd);
+        root.right = construct(inorder, preorder, rootIndexInInorder + 1, inorderEnd, preorderStart + (rootIndexInInorder - inorderStart + 1), preorderEnd);
         return root;
     }
 
