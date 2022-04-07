@@ -2,20 +2,20 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ConstructTreeFromPreorderAndInorder {
-    public static BinaryTreeNode<Integer> construct(ArrayList<Integer> inorder, ArrayList<Integer> preorder) {
-        if(inorder.size() == 0 || preorder.size() == 0)
+    public static BinaryTreeNode<Integer> construct(ArrayList<Integer> inorder, ArrayList<Integer> preorder,
+            int inorderStart, int inorderEnd, int preorderStart, int preorderEnd) {
+        if (inorderStart > inorderEnd)
             return null;
-        BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(preorder.get(0));
-        int rootIndexInInorder = inorder.indexOf(preorder.get(0));
-        ArrayList<Integer> preorderLeft = new ArrayList<>(preorder.subList(1, rootIndexInInorder + 1));
-        ArrayList<Integer> preorderRight = new ArrayList<>(preorder.subList(rootIndexInInorder + 1, preorder.size()));
-
-        ArrayList<Integer> inorderLeft = new ArrayList<>(inorder.subList(0, rootIndexInInorder));
-        ArrayList<Integer> inorderRight = new ArrayList<>(inorder.subList(rootIndexInInorder + 1, inorder.size()));
-
-        root.left = construct(inorderLeft, preorderLeft);
-        root.right = construct(inorderRight, preorderRight);
+        BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(preorder.get(preorderStart));
+        int rootIndexInInorder = inorder.indexOf(preorder.get(preorderStart));
+        
+        root.left = construct(inorder, preorder, inorderStart, rootIndexInInorder - 1, preorderStart + 1, rootIndexInInorder);
+        root.right = construct(inorder, preorder, rootIndexInInorder + 1, inorderEnd, preorderStart + (rootIndexInInorder - inorderStart) + 1, preorderEnd);
         return root;
+    }
+
+    public static BinaryTreeNode<Integer> construct(ArrayList<Integer> inorder, ArrayList<Integer> preorder) {
+        return construct(inorder, preorder, 0, inorder.size() - 1, 0, preorder.size() - 1);
     }
 
     public static void main(String[] args) {
