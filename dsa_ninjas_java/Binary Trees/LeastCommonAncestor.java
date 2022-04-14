@@ -1,44 +1,21 @@
-class LCAData {
-    boolean nodeAFound;
-    boolean nodeBFound;
-    int lca;
-
-    public LCAData() {
-        this.nodeAFound = false;
-        this.nodeAFound = false;
-        this.lca = -1;
-    }
-
-    public LCAData(boolean nodeAFound, boolean nodeBFound, int lca) {
-        this.nodeAFound = nodeAFound;
-        this.nodeBFound = nodeBFound;
-        this.lca = lca;
-    }
-}
-
 public class LeastCommonAncestor {
-    public static LCAData lca(BinaryTreeNode<Integer> root, int nodeA, int nodeB) {
+    public static int lca(BinaryTreeNode<Integer> root, int nodeA, int nodeB) {
         if (root == null)
-            return new LCAData();
+            return -1;
 
         var leftResult = lca(root.left, nodeA, nodeB);
         var rightResult = lca(root.right, nodeA, nodeB);
 
-        if (leftResult.lca == -1 && rightResult.lca == -1) {
-            if ((leftResult.nodeAFound || rightResult.nodeAFound)
-                    && (leftResult.nodeBFound || rightResult.nodeBFound)) {
-                return new LCAData(true, true, root.data);
-            } else if (root.data == nodeA) {
-                return new LCAData(true, leftResult.nodeBFound || rightResult.nodeBFound, -1);
-            } else if (root.data == nodeB) {
-                return new LCAData(leftResult.nodeAFound || rightResult.nodeAFound, true, -1);
-            } else {
-                return new LCAData(leftResult.nodeAFound || rightResult.nodeAFound,
-                        leftResult.nodeBFound || rightResult.nodeBFound, -1);
-            }
-        } else {
-            return new LCAData(true, true, leftResult.lca != -1 ? leftResult.lca : rightResult.lca);
-        }
+        if (root.data == nodeA || root.data == nodeB)
+            return root.data;
+        else if (leftResult == -1 && rightResult == -1)
+            return -1;
+        else if (leftResult == -1)
+            return rightResult;
+        else if (rightResult == -1)
+            return leftResult;
+        else
+            return root.data;
     }
 
     public static void main(String[] args) {
@@ -56,9 +33,9 @@ public class LeastCommonAncestor {
         BinaryTree.printInOrder(binaryTree.root);
         System.out.println();
 
-        Integer[][] testCases = { { 2, 10 }, { 4, 8 }, { 7, 9 }, { 7, 13 } };
+        Integer[][] testCases = { { 2, 10 }, { 10, 9 }, { 7, 9 }, { 7, 13 }, {11, 12}};
         
         for(var testCase: testCases)
-            System.out.println(lca(binaryTree.root, testCase[0], testCase[1]).lca);
+            System.out.println(lca(binaryTree.root, testCase[0], testCase[1]));
     }
 }
