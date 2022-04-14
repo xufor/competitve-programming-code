@@ -119,8 +119,18 @@ public class PrintSearchInsertDeleteBST {
             binarySearchTree.printInOrder();
             System.out.println();
         }
+        //              9
+        //             / \
+        //            4   10
+        //           / \
+        //          2   5
+        //         / \   \
+        //        1   3   7
+        //               / \
+        //              6   8
         System.out.println(binarySearchTree.search(0));
         System.out.println(binarySearchTree.search(3));
+        
         for (int data : new Integer[] { 9, 4, 5, 2, 3 }) {
             binarySearchTree.delete(data);
             binarySearchTree.printInOrder();
