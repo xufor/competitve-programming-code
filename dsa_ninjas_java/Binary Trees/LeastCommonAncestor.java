@@ -1,5 +1,5 @@
 public class LeastCommonAncestor {
-    public static int lca(BinaryTreeNode<Integer> root, int nodeA, int nodeB) {
+    public static int lca(BTNode<Integer> root, int nodeA, int nodeB) {
         if (root == null)
             return -1;
 

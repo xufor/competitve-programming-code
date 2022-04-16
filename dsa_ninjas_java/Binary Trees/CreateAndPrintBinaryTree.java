@@ -1,24 +1,24 @@
 import java.util.Scanner;
 
-class BinaryTreeNode<T> {
+class BTNode<T> {
     T data;
-    BinaryTreeNode<T> left;
-    BinaryTreeNode<T> right;
+    BTNode<T> left;
+    BTNode<T> right;
 
-    BinaryTreeNode(T data) {
+    BTNode(T data) {
         this.data = data;
     }
 }
 
 class BinaryTree<T> {
-    public BinaryTreeNode<T> root;
+    public BTNode<T> root;
     public static Scanner scnr = new Scanner(System.in);
 
-    public static BinaryTreeNode<Integer> contructBinaryTreeRecursively() {
+    public static BTNode<Integer> contructBinaryTreeRecursively() {
         Integer data = scnr.nextInt();
         if (data == -1)
             return null;
-        BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(data);
+        BTNode<Integer> root = new BTNode<Integer>(data);
         root.left = contructBinaryTreeRecursively();
         root.right = contructBinaryTreeRecursively();
         return root;
@@ -30,7 +30,7 @@ class BinaryTree<T> {
         return binaryTree;
     }
 
-    public static <Z> void printInOrder(BinaryTreeNode<Z> root) {
+    public static <Z> void printInOrder(BTNode<Z> root) {
         if(root != null) {
             printInOrder(root.left);
             System.out.print(root.data + " ");
@@ -38,7 +38,7 @@ class BinaryTree<T> {
         }
     }
 
-    public static <Z> void printPostOrder(BinaryTreeNode<Z> root) {
+    public static <Z> void printPostOrder(BTNode<Z> root) {
         if(root != null) {
             printPostOrder(root.left);
             printPostOrder(root.right);
@@ -46,7 +46,7 @@ class BinaryTree<T> {
         }
     }
 
-    public static <Z> void printPreOrder(BinaryTreeNode<Z> root) {
+    public static <Z> void printPreOrder(BTNode<Z> root) {
         if(root != null) {
             System.out.print(root.data + " ");
             printPreOrder(root.left);

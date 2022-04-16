@@ -9,7 +9,7 @@ class Data {
 }
 
 public class CheckIfTreeIsBalanced {
-    public static Data isBalanced(BinaryTreeNode<Integer> root) {
+    public static Data isBalanced(BTNode<Integer> root) {
         if (root == null) {
             return new Data(0, true);
         }

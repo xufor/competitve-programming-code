@@ -1,11 +1,11 @@
 public class DiameterOfABinaryTree {
-    public static int diameter(BinaryTreeNode<Integer> root) {
+    public static int diameter(BTNode<Integer> root) {
         if (root == null)
             return 0;
         return Math.max(Math.max(height(root.left) + height(root.left), diameter(root.left)), diameter(root.right));
     }
 
-    public static int height(BinaryTreeNode<Integer> root) {
+    public static int height(BTNode<Integer> root) {
         if (root == null)
             return 0;
         return 1 + Math.max(height(root.left), height(root.right));

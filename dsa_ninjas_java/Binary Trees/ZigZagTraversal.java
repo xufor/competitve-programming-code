@@ -3,15 +3,15 @@ import java.util.LinkedList;
 
 
 public class ZigZagTraversal {
-    public static void zigzag(BinaryTreeNode<Integer> root) {
+    public static void zigzag(BTNode<Integer> root) {
         if (root == null)
             return;
-        LinkedList<BinaryTreeNode<Integer>> linkedList = new LinkedList<>(); // this is a doubly linked list
+        LinkedList<BTNode<Integer>> linkedList = new LinkedList<>(); // this is a doubly linked list
         boolean isLeftToRight = true;
         linkedList.addLast(root);
 
         while (!linkedList.isEmpty()) {
-            Iterator<BinaryTreeNode<Integer>> iterator = isLeftToRight == true ? linkedList.iterator()
+            Iterator<BTNode<Integer>> iterator = isLeftToRight == true ? linkedList.iterator()
                     : linkedList.descendingIterator();
             
             while (iterator.hasNext()) {
@@ -21,7 +21,7 @@ public class ZigZagTraversal {
 
             int size = linkedList.size();
             for (int i = 0; i < size; i++) {
-                BinaryTreeNode<Integer> nodeToBeProcessed = linkedList.removeFirst();
+                BTNode<Integer> nodeToBeProcessed = linkedList.removeFirst();
                 if (nodeToBeProcessed.left != null)
                     linkedList.addLast(nodeToBeProcessed.left);
                 if (nodeToBeProcessed.right != null)

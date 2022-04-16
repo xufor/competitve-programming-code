@@ -1,5 +1,5 @@
 public class DiameterOfABinaryTreeOptimized {
-    public static int[] diameter(BinaryTreeNode<Integer> root) {
+    public static int[] diameter(BTNode<Integer> root) {
         if (root == null)
             return new int[] { 0, 0 }; // { height, diameter }
         int[] leftResult = diameter(root.left);

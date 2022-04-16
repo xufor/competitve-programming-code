@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 
 public class RootToNodePath {
-    public static LinkedList<Integer> path(BinaryTreeNode<Integer> root, Integer target) {
+    public static LinkedList<Integer> path(BTNode<Integer> root, Integer target) {
         if(root == null) {
             return null;
         }

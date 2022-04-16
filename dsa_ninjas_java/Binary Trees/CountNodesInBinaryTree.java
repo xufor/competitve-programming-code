@@ -1,5 +1,5 @@
 public class CountNodesInBinaryTree {
-    public static int countNodes(BinaryTreeNode<Integer> root) {
+    public static int countNodes(BTNode<Integer> root) {
         if (root == null)
             return 0;
         return 1 + countNodes(root.left) + countNodes(root.right);

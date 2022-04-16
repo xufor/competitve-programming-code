@@ -3,7 +3,7 @@ import java.util.Stack;
 public class PathSumRootToLeaf {
     public static Stack<Integer> stack = new Stack<>();
 
-    public static void paths(BinaryTreeNode<Integer> root, int targetSum) {
+    public static void paths(BTNode<Integer> root, int targetSum) {
         if(root == null)
             return;
         if (root.left == null && root.right == null) {
