@@ -1,6 +1,6 @@
 import java.util.Stack;
 
-public class PathSumRootToLeaf {
+public class PrintAllPathsToLeafWithSumK {
     public static Stack<Integer> stack = new Stack<>();
 
     public static void paths(BTNode<Integer> root, int targetSum) {
