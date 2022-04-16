@@ -1,10 +1,10 @@
 import java.util.Stack;
 
-class BSTIterator {
-    Stack<BSTNode<Integer>> stack;
+class BTIterator {
+    Stack<BTNode<Integer>> stack;
     boolean isReverse;
 
-    public BSTIterator(BSTNode<Integer> root, boolean isReverse) {
+    public BTIterator(BTNode<Integer> root, boolean isReverse) {
         this.isReverse = isReverse;
         this.stack = new Stack<>();
         while (root != null) {
@@ -13,7 +13,7 @@ class BSTIterator {
         }
     }
 
-    public BSTNode<Integer> next() {
+    public BTNode<Integer> next() {
         var top = stack.pop();
         var next = (isReverse ? top.left: top.right);
         while (next != null) {
@@ -30,8 +30,8 @@ class BSTIterator {
 
 public class BSTPairSum {
     public static void pairSum(int targetSum, BinarySearchTree binarySearchTree) {
-        var fwdIterator = new BSTIterator(binarySearchTree.root, false);
-        var revIterator = new BSTIterator(binarySearchTree.root, true);
+        var fwdIterator = new BTIterator(binarySearchTree.root, false);
+        var revIterator = new BTIterator(binarySearchTree.root, true);
 
         if (fwdIterator.hasNext()) { // ensuring atleast one element is present
             var leftElement = fwdIterator.next();

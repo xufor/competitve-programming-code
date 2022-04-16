@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 
 public class BSTToSortedLinkedList {
-    public static LinkedList<Integer> convert(BSTNode<Integer> root) {
+    public static LinkedList<Integer> convert(BTNode<Integer> root) {
         if(root == null) {
             return new LinkedList<>();
         }

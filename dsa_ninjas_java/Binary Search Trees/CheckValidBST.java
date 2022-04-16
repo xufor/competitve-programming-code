@@ -1,7 +1,7 @@
 class CheckValidBSTData {
-    public Integer min;
-    public Integer max;
-    public Boolean isValid;
+    public int min;
+    public int max;
+    public boolean isValid;
 
     public CheckValidBSTData() {
         this.min = Integer.MAX_VALUE;
@@ -9,7 +9,7 @@ class CheckValidBSTData {
         this.isValid = true;
     }
 
-    public CheckValidBSTData(Integer min, Integer max, Boolean isValid) {
+    public CheckValidBSTData(int min, int max, boolean isValid) {
         this.min = min;
         this.max = max;
         this.isValid = isValid;
@@ -17,15 +17,19 @@ class CheckValidBSTData {
 }
 
 public class CheckValidBST {
-    public static CheckValidBSTData check(BSTNode<Integer> root) {
+    public static CheckValidBSTData check(BTNode<Integer> root) {
         if (root == null)
             return new CheckValidBSTData();
+
         CheckValidBSTData leftResult = check(root.left);
         CheckValidBSTData rightResult = check(root.right);
-        Integer nextMinValue = Math.min(leftResult.min, root.data);
-        Integer nextMaxValue = Math.max(rightResult.max, root.data);
-        Boolean nextIsValid = leftResult.isValid && rightResult.isValid &&
+
+        int nextMinValue = Math.min(leftResult.min, root.data);
+        int nextMaxValue = Math.max(rightResult.max, root.data);
+
+        boolean nextIsValid = leftResult.isValid && rightResult.isValid &&
                 root.data > leftResult.max && root.data < rightResult.min;
+
         return new CheckValidBSTData(nextMinValue, nextMaxValue, nextIsValid);
     }
 
@@ -36,12 +40,12 @@ public class CheckValidBST {
         System.out.println(check(binarySearchTree.root).isValid);
 
         var falseBinarySearchTree = new BinarySearchTree();
-        falseBinarySearchTree.root = new BSTNode<Integer>(6);
-        falseBinarySearchTree.root.left = new BSTNode<Integer>(9);
-        falseBinarySearchTree.root.right = new BSTNode<Integer>(10);
+        falseBinarySearchTree.root = new BTNode<Integer>(6);
+        falseBinarySearchTree.root.left = new BTNode<Integer>(9);
+        falseBinarySearchTree.root.right = new BTNode<Integer>(10);
         System.out.println(check(falseBinarySearchTree.root).isValid);
 
-        falseBinarySearchTree.root.left = new BSTNode<Integer>(3);
+        falseBinarySearchTree.root.left = new BTNode<Integer>(3);
         System.out.println(check(falseBinarySearchTree.root).isValid);
     }
 }

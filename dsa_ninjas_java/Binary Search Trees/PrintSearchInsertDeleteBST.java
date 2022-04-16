@@ -1,17 +1,17 @@
-class BSTNode<T> {
+class BTNode<T> {
     T data;
-    BSTNode<T> left;
-    BSTNode<T> right;
+    BTNode<T> left;
+    BTNode<T> right;
 
-    BSTNode(T data) {
+    BTNode(T data) {
         this.data = data;
     }
 }
 
 class BinarySearchTree {
-    public BSTNode<Integer> root;
+    public BTNode<Integer> root;
 
-    private BSTNode<Integer> search(BSTNode<Integer> root, int data) {
+    private BTNode<Integer> search(BTNode<Integer> root, int data) {
         if (root == null)
             return null;
         else if (data > root.data)
@@ -26,9 +26,9 @@ class BinarySearchTree {
         return search(this.root, data) != null;
     }
 
-    private BSTNode<Integer> insert(BSTNode<Integer> root, int data) {
+    private BTNode<Integer> insert(BTNode<Integer> root, int data) {
         if (root == null)
-            return new BSTNode<Integer>(data);
+            return new BTNode<Integer>(data);
         else if (data > root.data)
             root.right = insert(root.right, data);
         else
@@ -40,7 +40,7 @@ class BinarySearchTree {
         this.root = insert(this.root, data);
     }
 
-    private BSTNode<Integer> delete(BSTNode<Integer> root, int data) {
+    private BTNode<Integer> delete(BTNode<Integer> root, int data) {
         if (root == null)
             return null;
         else if (data > root.data) {
@@ -59,7 +59,7 @@ class BinarySearchTree {
             else if(root.right == null)
                 return root.left;
             else {
-                BSTNode<Integer> inorderSuccessor = root.right;
+                BTNode<Integer> inorderSuccessor = root.right;
                 while(inorderSuccessor.left != null)
                     inorderSuccessor = inorderSuccessor.left;
                 root.data = inorderSuccessor.data;
@@ -73,7 +73,7 @@ class BinarySearchTree {
         this.root = delete(this.root, data);
     }
 
-    private void printInOrder(BSTNode<Integer> root) {
+    private void printInOrder(BTNode<Integer> root) {
         if(root != null) {
             printInOrder(root.left);
             System.out.print(root.data + " ");
@@ -81,7 +81,7 @@ class BinarySearchTree {
         }
     }
 
-    private void printPostOrder(BSTNode<Integer> root) {
+    private void printPostOrder(BTNode<Integer> root) {
         if(root != null) {
             printPostOrder(root.left);
             printPostOrder(root.right);
@@ -89,7 +89,7 @@ class BinarySearchTree {
         }
     }
 
-    private void printPreOrder(BSTNode<Integer> root) {
+    private void printPreOrder(BTNode<Integer> root) {
         if(root != null) {
             System.out.print(root.data + " ");
             printPreOrder(root.left);
