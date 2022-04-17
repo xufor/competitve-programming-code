@@ -50,8 +50,8 @@ public class LargestBSTInBT {
         LargestBSTInBTData leftResult = find(root.left);
         LargestBSTInBTData rightResult = find(root.right);
 
-        int nextMinValue = Math.min(leftResult.min, root.data);
-        int nextMaxValue = Math.max(rightResult.max, root.data);
+        int nextMinValue = Math.min(root.data, Math.min(leftResult.min, rightResult.min));
+        int nextMaxValue = Math.max(root.data, Math.max(leftResult.max, rightResult.max));
 
         boolean nextIsValid = leftResult.isValid && rightResult.isValid &&
                 root.data > leftResult.max && root.data < rightResult.min;
