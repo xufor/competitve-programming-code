@@ -5,8 +5,8 @@ import java.util.Collections;
 class MaxHeap {
     private ArrayList<Integer> heap = new ArrayList<>();
 
-    public ArrayList<Integer> getHeap() {
-        return this.heap;
+    public boolean isEmpty() {
+        return heap.isEmpty();
     }
 
     public void insert(int data) {
@@ -56,7 +56,7 @@ public class InsertAndDeleteFromHeap {
     public static void main(String[] args) {
         var maxHeap = new MaxHeap();
         Arrays.stream(new int[] { 6, 7, 74, 4, 9, 5, 79, 1 }).forEach(e -> maxHeap.insert(e));
-        while(!maxHeap.getHeap().isEmpty())
+        while(!maxHeap.isEmpty())
             System.out.print(maxHeap.delete() + " ");
     }
 }
