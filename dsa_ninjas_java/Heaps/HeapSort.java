@@ -17,7 +17,7 @@ public class HeapSort {
     }
 
     public static void sort(int[] arr) {
-        for (int i = arr.length / 2 - 1; i >= 0; i--)
+        for (int i = (arr.length - 2) / 2; i >= 0; i--)
             downHeapify(arr, i, arr.length);
 
         for (int i = arr.length - 1; i > 0; i--) {
