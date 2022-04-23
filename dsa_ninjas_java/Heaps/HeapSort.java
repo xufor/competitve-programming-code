@@ -1,10 +1,4 @@
 public class HeapSort {
-    public static void swap(int[] arr, int indexA, int indexB) {
-        int temp = arr[indexA];
-        arr[indexA] = arr[indexB];
-        arr[indexB] = temp;
-    }
-
     public static void downHeapify(int[] heap, int parentIndex, int heapSize) {
         int leftChildIndex = (parentIndex * 2) + 1;
         int rightChildIndex = (parentIndex * 2) + 2;
@@ -17,7 +11,7 @@ public class HeapSort {
             largestElementIndex = rightChildIndex;
 
         if (parentIndex != largestElementIndex) {
-            swap(heap, parentIndex, largestElementIndex);
+            ArrayUtils.swap(heap, parentIndex, largestElementIndex);
             downHeapify(heap, largestElementIndex, heapSize);
         }
     }
@@ -27,7 +21,7 @@ public class HeapSort {
             downHeapify(arr, i, arr.length);
 
         for (int i = arr.length - 1; i > 0; i--) {
-            swap(arr, i, 0);
+            ArrayUtils.swap(arr, i, 0);
             downHeapify(arr, 0, i);
         }
     }
