@@ -16,7 +16,7 @@ class Data {
 public class MergeKSortedArrays {
     public static ArrayList<Integer> merge(int[][] arrays) {
         var result = new ArrayList<Integer>();
-        PriorityQueue<Data> heap = new PriorityQueue<Data>((var a, var b) -> a.element - b.element);
+        var heap = new PriorityQueue<Data>((a, b) -> a.element - b.element);
         
         // add the first element of all arrays into the heap
         for(int i = 0; i < arrays.length; i++) {
