@@ -5,7 +5,6 @@ public class AutoComplete {
     public static void getListOfAllWords(TrieNode root, String result, LinkedList<String> listOfAllWords) {
         if (root.isTerminating) {
             listOfAllWords.add(result);
-            return;
         }
         for (int i = 0; i < 26; i++) {
             if (root.children[i] != null) {
@@ -45,6 +44,6 @@ public class AutoComplete {
         Trie trie = new Trie();
         Arrays.stream(new String[] { "BANANA", "APPLE", "CAT", "CAMEL", "CATAPULT", "CAPITAL", "CAPTAIN", "BANNED",
                 "APPLICATION", "APRICOT" }).forEach(word -> trie.add(word));
-        autocomplete(trie, "T");
+        autocomplete(trie, "CAT");
     }
 }
