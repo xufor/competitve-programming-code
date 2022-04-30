@@ -61,10 +61,10 @@ class Graph {
         while (!queue.isEmpty()) {
             int vertex = queue.removeFirst();
             System.out.print(vertex + " ");
-            for (int j = 0; j < noOfVertices; j++) {
-                if (edges[vertex][j] == 1 && !visited[j]) {
-                    queue.addLast(j);
-                    visited[j] = true;
+            for (int i = 0; i < noOfVertices; i++) {
+                if (edges[vertex][i] == 1 && !visited[i]) {
+                    queue.addLast(i);
+                    visited[i] = true;
                 }
             }
         }
@@ -100,11 +100,7 @@ public class AdjacencyMatrixImplementation {
         3 4
         5 6
 
-        0----2
-        | \  | \   5
-        |  \ |  4  |
-        |   \| /   6
-        1----3 
+        7 8 0 1 1 3 0 3 0 2 2 3 2 4 3 4 5 6
     */
     public static void main(String[] args) {
         Graph graph = Graph.construct();
