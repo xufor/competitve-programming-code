@@ -4,13 +4,13 @@ import java.util.Scanner;
 class Graph {
     public int noOfVertices;
     public int noOfEdges;
-    public int[][] edges;
+    public int[][] adjacencyMatrix;
     public static Scanner scnr = new Scanner(System.in);
 
     public Graph(int noOfVertices, int noOfEdges) {
         this.noOfVertices = noOfVertices;
         this.noOfEdges = noOfEdges;
-        this.edges = new int[noOfVertices][noOfVertices];
+        this.adjacencyMatrix = new int[noOfVertices][noOfVertices];
     }
 
     public static Graph construct() {
@@ -20,8 +20,8 @@ class Graph {
         for (int i = 0; i < noOfEdges; i++) {
             int fromVertex = scnr.nextInt();
             int toVertex = scnr.nextInt();
-            graph.edges[fromVertex][toVertex] = 1;
-            graph.edges[toVertex][fromVertex] = 1;
+            graph.adjacencyMatrix[fromVertex][toVertex] = 1;
+            graph.adjacencyMatrix[toVertex][fromVertex] = 1;
         }
         return graph;
     }
@@ -30,7 +30,7 @@ class Graph {
         System.out.print(startVertex + " ");
         visited[startVertex] = true;
         for (int i = 0; i < noOfVertices; i++) {
-            if (edges[startVertex][i] == 1 && !visited[i]) {
+            if (adjacencyMatrix[startVertex][i] == 1 && !visited[i]) {
                 depthFirstSearch(i, visited);
             }
         }
@@ -62,7 +62,7 @@ class Graph {
             int vertex = queue.removeFirst();
             System.out.print(vertex + " ");
             for (int i = 0; i < noOfVertices; i++) {
-                if (edges[vertex][i] == 1 && !visited[i]) {
+                if (adjacencyMatrix[vertex][i] == 1 && !visited[i]) {
                     queue.addLast(i);
                     visited[i] = true;
                 }

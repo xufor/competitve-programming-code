@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 public class GetBFSPath {
-    public static LinkedList<Integer> getBFSPath(int[][] edges, int startVertex, int targetVertex, boolean[] visited) {
+    public static LinkedList<Integer> getBFSPath(int[][] adjacencyMatrix, int startVertex, int targetVertex, boolean[] visited) {
         var queue = new LinkedList<Integer>();
         var map = new HashMap<Integer, Integer>();
 
@@ -13,8 +13,8 @@ public class GetBFSPath {
             int vertex = queue.removeFirst();
             if (vertex == targetVertex)
                 break;
-            for (int i = 0; i < edges.length; i++) {
-                if (edges[vertex][i] == 1 && !visited[i]) {
+            for (int i = 0; i < adjacencyMatrix.length; i++) {
+                if (adjacencyMatrix[vertex][i] == 1 && !visited[i]) {
                     queue.addLast(i);
                     visited[i] = true;
                     map.put(i, vertex); // (toVertex, fromVertex)
@@ -41,7 +41,7 @@ public class GetBFSPath {
 
     public static void main(String[] args) {
         Graph graph = Graph.construct();
-        System.out.println(getBFSPath(graph.edges, 0, 2, new boolean[graph.noOfVertices]));
-        System.out.println(getBFSPath(graph.edges, 0, 5, new boolean[graph.noOfVertices]));
+        System.out.println(getBFSPath(graph.adjacencyMatrix, 0, 2, new boolean[graph.noOfVertices]));
+        System.out.println(getBFSPath(graph.adjacencyMatrix, 0, 5, new boolean[graph.noOfVertices]));
     }
 }
