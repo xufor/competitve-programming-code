@@ -23,14 +23,14 @@ public class KrushkalsMinimumSpanningTree {
         return findParent(parentsOfVerticesInMST[targetVertex], parentsOfVerticesInMST);
     }
 
-    public static void krushkals(Edge[] edges, int noOfVertices) {
-        Arrays.sort(edges, (a, b) -> a.weight - b.weight);
+    public static void krushkals(Edge[] edgeList, int noOfVertices) {
+        Arrays.sort(edgeList, (a, b) -> a.weight - b.weight);
 
         ArrayList<Edge> mst = new ArrayList<Edge>();
         int[] parentsOfVerticesInMST = IntStream.range(0, noOfVertices).toArray();
         
-        for(int edgeUnderFocusIndex = 0; edgeUnderFocusIndex < edges.length && mst.size() != noOfVertices - 1; edgeUnderFocusIndex++) {
-            Edge edgeUnderFocus = edges[edgeUnderFocusIndex];
+        for(int edgeUnderFocusIndex = 0; edgeUnderFocusIndex < edgeList.length && mst.size() != noOfVertices - 1; edgeUnderFocusIndex++) {
+            Edge edgeUnderFocus = edgeList[edgeUnderFocusIndex];
             int parentOfSourceVertex = findParent(edgeUnderFocus.source, parentsOfVerticesInMST);
             int parentOfDestinationVertex = findParent(edgeUnderFocus.destination, parentsOfVerticesInMST);
 
@@ -48,12 +48,12 @@ public class KrushkalsMinimumSpanningTree {
         int noOfVertices = scnr.nextInt();
         int noOfEdges = scnr.nextInt();
 
-        Edge[] edges = new Edge[noOfEdges];
+        Edge[] edgeList = new Edge[noOfEdges];
         for(int i = 0; i < noOfEdges; i++) {
-            edges[i] = new Edge(scnr.nextInt(), scnr.nextInt(), scnr.nextInt());
+            edgeList[i] = new Edge(scnr.nextInt(), scnr.nextInt(), scnr.nextInt());
         }
         System.out.println();
-        krushkals(edges, noOfVertices);
+        krushkals(edgeList, noOfVertices);
         scnr.close();
     }
 }
