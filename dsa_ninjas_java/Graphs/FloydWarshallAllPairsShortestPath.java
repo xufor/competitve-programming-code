@@ -13,7 +13,7 @@ public class FloydWarshallAllPairsShortestPath {
         for (int k = 0; k < adjacencyMatrix.length; k++) {
             for (int i = 0; i < adjacencyMatrix.length; i++) {
                 for (int j = 0; j < adjacencyMatrix.length; j++) {
-                    if(adjacencyMatrix[i][k] == Integer.MAX_VALUE || adjacencyMatrix[k][j] == Integer.MAX_VALUE) {
+                    if(i == k || j == k || adjacencyMatrix[i][k] == Integer.MAX_VALUE || adjacencyMatrix[k][j] == Integer.MAX_VALUE) {
                         continue;
                     }
 
