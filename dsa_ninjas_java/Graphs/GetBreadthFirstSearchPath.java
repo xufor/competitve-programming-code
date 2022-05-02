@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.LinkedList;
 
-public class GetBFSPath {
+public class GetBreadthFirstSearchPath {
     public static LinkedList<Integer> getBFSPath(int[][] adjacencyMatrix, int startVertex, int targetVertex, boolean[] visited) {
         var queue = new LinkedList<Integer>();
         var map = new HashMap<Integer, Integer>();

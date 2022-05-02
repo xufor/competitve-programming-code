@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.LinkedList;
 
-public class GetDFSPath {
+public class GetDepthFirstSearchPath {
     public static LinkedList<Integer> getDFSPath(int[][] adjacencyMatrix, int startVertex, int targetVertex, boolean[] visited) {
         if (startVertex == targetVertex)
             return new LinkedList<Integer>(Arrays.asList(startVertex));

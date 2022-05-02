@@ -87,7 +87,7 @@ class Graph {
     }
 }
 
-public class AdjacencyMatrixImplementation {
+public class AdjacencyMatrixGraphImplementation {
     /*
         7
         8

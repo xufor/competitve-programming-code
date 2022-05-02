@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class PrimsMST {
+public class PrimsMinimumSpanningTree {
     public static void prims(int[][] adjacencyMatrix, int startVertex) {
         int noOfVertices = adjacencyMatrix.length;
 
@@ -14,7 +14,7 @@ public class PrimsMST {
         parentOfVisit[startVertex] = -1;
 
         for (int i = 0; i < noOfVertices; i++) {
-            int minWeightVertexIndex = findMinWeightUnvisitedVertex(weightOfVisit, visited);
+            int minWeightVertexIndex = findMinWeightVertex(weightOfVisit, visited);
             visited[minWeightVertexIndex] = true;
 
             for (int j = 0; j < noOfVertices; j++) {
@@ -32,7 +32,7 @@ public class PrimsMST {
         }
     }
 
-    private static int findMinWeightUnvisitedVertex(int[] weightOfVisit, boolean[] visited) {
+    private static int findMinWeightVertex(int[] weightOfVisit, boolean[] visited) {
         int minWeightVertexIndex = -1;
         for (int i = 0; i < weightOfVisit.length; i++) {
             if (!visited[i] && (minWeightVertexIndex == -1 || weightOfVisit[i] < weightOfVisit[minWeightVertexIndex])) {

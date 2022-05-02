@@ -15,7 +15,7 @@ class Edge {
     }
 }
 
-public class KrushkalsMST {
+public class KrushkalsMinimumSpanningTree {
     public static int findParent(int targetVertex, int[] parentsOfVerticesInMST) {
         if(parentsOfVerticesInMST[targetVertex] == targetVertex) {
             return targetVertex;
