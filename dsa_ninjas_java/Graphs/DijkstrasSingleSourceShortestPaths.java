@@ -2,6 +2,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class DijkstrasSingleSourceShortestPaths {
+    // this algo does not work for graphs with edges having negative weights
     private static void dijkstras(int[][] adjacencyMatrix, int startVertex) {
         int noOfVertices = adjacencyMatrix.length;
 
