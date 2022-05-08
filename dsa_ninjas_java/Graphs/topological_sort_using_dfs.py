@@ -1,9 +1,9 @@
-def bfs(adjacency_list, current_vertex, visited, result_stack):
+def dfs(adjacency_list, current_vertex, visited, result_stack):
     visited[current_vertex] = True
 
     for neighbour_vertex in adjacency_list[current_vertex]:
         if not visited[neighbour_vertex]:
-            bfs(adjacency_list, neighbour_vertex, visited, result_stack)
+            dfs(adjacency_list, neighbour_vertex, visited, result_stack)
     
     result_stack.append(current_vertex)
     
@@ -14,7 +14,7 @@ def topo_sort(adjacency_list, no_of_vertices):
 
     for i in range(no_of_vertices):
         if not visited[i]:
-            bfs(adjacency_list, i, visited, result_stack)
+            dfs(adjacency_list, i, visited, result_stack)
 
     result_stack.reverse()
     
