@@ -17,7 +17,7 @@ def bfs(adjacency_list, indegree):
                 queue.append(neighbour)
 
 
-# this algo is also called Kahs Algorithm
+# this algo is also called Kahn's Algorithm
 def topo_sort(adjacency_list, no_of_vertices):
     indegree = [0] * no_of_vertices
 
