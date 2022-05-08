@@ -3,7 +3,10 @@ def detect_cycle(adjacency_list, current_vertex, previous_vertex, visited):
 
     for neighbour_vertex in adjacency_list[current_vertex]:
         if not visited[neighbour_vertex]:
-            return detect_cycle(adjacency_list, neighbour_vertex, current_vertex, visited)
+            result = detect_cycle(adjacency_list, neighbour_vertex, current_vertex, visited)
+            # if any of the calls detects cycle then return True
+            if result == True:
+                return True
         else:
             if neighbour_vertex != previous_vertex:
                 return True
