@@ -44,15 +44,17 @@ public class CycleDetectionInUndirectedGraphUsingBFS {
         Scanner scnr = new Scanner(System.in);
         int noOfVertices = scnr.nextInt();
 
+        scnr.nextLine();
+
         var adjacencyList = new ArrayList<ArrayList<Integer>>();
         for(int i = 0; i < noOfVertices; i++) {
             ArrayList<Integer> arrayList = new ArrayList<>();
-            int noOfNeighbours = scnr.nextInt(); 
-            for(int j = 0; j < noOfNeighbours; j++) {
-                arrayList.add(scnr.nextInt());
-            }
+            String[] neighbours = scnr.nextLine().split(" "); 
+            for(String neighbour: neighbours)
+                arrayList.add(Integer.parseInt(neighbour));
             adjacencyList.add(arrayList);
         }
+
         System.out.println();
         detectCycle(adjacencyList, noOfVertices);
         scnr.close();
@@ -61,22 +63,22 @@ public class CycleDetectionInUndirectedGraphUsingBFS {
 
 /*
 8
-1 1
-3 0 4 5
-2 4 6
-2 5 6
-2 1 2
-2 1 3
-3 2 3 7
-1 6
+1
+0 4 5
+4 6
+5 6
+1 2
+1 3
+2 3 7
+6
 
 8
-1 1
-3 0 4 5
-1 4
-2 5 6
-2 1 2
-2 1 3
-2 3 7
-1 6
+1
+0 4 5
+4
+5 6
+1 2
+1 3
+3 7
+6
 */
