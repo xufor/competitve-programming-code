@@ -11,7 +11,7 @@ public class ZeroOneKnapsackIterative {
                 if(itemWeights[currentItemsIncluded - 1] > currentKnapsackCapacity)
                     memoizationMatrix[currentItemsIncluded][currentKnapsackCapacity] = memoizationMatrix[currentItemsIncluded-1][currentKnapsackCapacity];
                 else
-                    memoizationMatrix[currentItemsIncluded][currentKnapsackCapacity] = Math.max(itemProfits[currentItemsIncluded - 1] + memoizationMatrix[currentItemsIncluded -1][currentKnapsackCapacity - itemWeights[currentItemsIncluded - 1]], memoizationMatrix[currentItemsIncluded-1][currentKnapsackCapacity]);
+                    memoizationMatrix[currentItemsIncluded][currentKnapsackCapacity] = Math.max(itemProfits[currentItemsIncluded - 1] + memoizationMatrix[currentItemsIncluded - 1][currentKnapsackCapacity - itemWeights[currentItemsIncluded - 1]], memoizationMatrix[currentItemsIncluded - 1][currentKnapsackCapacity]);
             }
         }
 
