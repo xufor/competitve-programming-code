@@ -1,26 +1,26 @@
 public class CountAllSubsetsWithGivenSum {
     public static int subsetSum(int[] itemList, int targetSum) {
         int noOfItems = itemList.length;
-        int[][] memoizationMatrix = new int[noOfItems + 1][targetSum + 1];
+        int[][] tabulationMatrix = new int[noOfItems + 1][targetSum + 1];
 
         // memoization matrix initialization
         for (int k = 0; k <= noOfItems; k++)
-        memoizationMatrix[k][0] = 1;
+        tabulationMatrix[k][0] = 1;
         
         for (int k = 1; k <= targetSum; k++)
-        memoizationMatrix[0][k] = 0;
+        tabulationMatrix[0][k] = 0;
 
         // dynamic programming logic
         for(int currentItemsIncluded = 1; currentItemsIncluded <= noOfItems; currentItemsIncluded++) {
             for(int currentTargetSum = 1; currentTargetSum <= targetSum; currentTargetSum++) {
                 if(itemList[currentItemsIncluded - 1] > currentTargetSum)
-                    memoizationMatrix[currentItemsIncluded][currentTargetSum] = memoizationMatrix[currentItemsIncluded - 1][currentTargetSum];
+                    tabulationMatrix[currentItemsIncluded][currentTargetSum] = tabulationMatrix[currentItemsIncluded - 1][currentTargetSum];
                 else
-                    memoizationMatrix[currentItemsIncluded][currentTargetSum] = memoizationMatrix[currentItemsIncluded - 1][currentTargetSum - itemList[currentItemsIncluded - 1]] + memoizationMatrix[currentItemsIncluded - 1][currentTargetSum];
+                    tabulationMatrix[currentItemsIncluded][currentTargetSum] = tabulationMatrix[currentItemsIncluded - 1][currentTargetSum - itemList[currentItemsIncluded - 1]] + tabulationMatrix[currentItemsIncluded - 1][currentTargetSum];
             }
         }
 
-        return memoizationMatrix[noOfItems][targetSum];
+        return tabulationMatrix[noOfItems][targetSum];
     }
 
     public static void main(String[] args) {
