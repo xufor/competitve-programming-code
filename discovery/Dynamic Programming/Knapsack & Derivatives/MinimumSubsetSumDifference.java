@@ -1,4 +1,4 @@
-// This problem can also be called minimum difference partition
+// this problem can also be called minimum difference partition
 
 public class MinimumSubsetSumDifference {
     public static int minimumSubsetSumDifference(int[] itemList) {

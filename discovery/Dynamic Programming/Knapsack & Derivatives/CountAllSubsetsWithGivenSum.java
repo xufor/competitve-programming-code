@@ -1,5 +1,5 @@
 public class CountAllSubsetsWithGivenSum {
-    public static int subsetSum(int[] itemList, int targetSum) {
+    public static int countAllSubsetsWithGivenSum(int[] itemList, int targetSum) {
         int noOfItems = itemList.length;
         int[][] tabulationMatrix = new int[noOfItems + 1][targetSum + 1];
 
@@ -27,6 +27,6 @@ public class CountAllSubsetsWithGivenSum {
         int[] itemList = { 7, 2, 9, 3, 2 };
         int targetSum = 14;
 
-        System.out.println(subsetSum(itemList, targetSum));
+        System.out.println(countAllSubsetsWithGivenSum(itemList, targetSum));
     }
 }
