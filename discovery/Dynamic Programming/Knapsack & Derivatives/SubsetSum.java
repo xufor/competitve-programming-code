@@ -1,5 +1,5 @@
-public class SubsetSumProblem {
-    private static boolean subsetSum(int[] itemList, int targetSum) {
+public class SubsetSum {
+    public static boolean subsetSum(int[] itemList, int targetSum) {
         int noOfItems = itemList.length;
         boolean[][] memoizationMatrix = new boolean[noOfItems + 1][targetSum + 1];
 
