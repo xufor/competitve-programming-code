@@ -3,14 +3,14 @@ public class CountAllSubsetsWithGivenSum {
         int noOfItems = itemList.length;
         int[][] memoizationMatrix = new int[noOfItems + 1][targetSum + 1];
 
-        // INIT
+        // memoization matrix initialization
         for (int k = 0; k <= noOfItems; k++)
         memoizationMatrix[k][0] = 1;
         
         for (int k = 1; k <= targetSum; k++)
         memoizationMatrix[0][k] = 0;
 
-        // LOGIC
+        // dynamic programming logic
         for(int currentItemsIncluded = 1; currentItemsIncluded <= noOfItems; currentItemsIncluded++) {
             for(int currentTargetSum = 1; currentTargetSum <= targetSum; currentTargetSum++) {
                 if(itemList[currentItemsIncluded - 1] > currentTargetSum)

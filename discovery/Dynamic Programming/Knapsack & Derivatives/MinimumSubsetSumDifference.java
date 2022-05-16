@@ -1,6 +1,13 @@
-public class SubsetSum {
-    public static boolean subsetSum(int[] itemList, int targetSum) {
-        int noOfItems = itemList.length;
+// This problem can also be called minimum difference partition
+
+public class MinimumSubsetSumDifference {
+    public static int minimumSubsetSumDifference(int[] itemList) {
+        int noOfItems = itemList.length, sumOfAllItems = 0;
+
+        for(int item: itemList)
+            sumOfAllItems += item;
+
+        int targetSum = sumOfAllItems;
         boolean[][] memoizationMatrix = new boolean[noOfItems + 1][targetSum + 1];
 
         // memoization matrix initialization
@@ -20,13 +27,20 @@ public class SubsetSum {
             }
         }
 
-        return memoizationMatrix[noOfItems][targetSum];
+        int minimumDifference = Integer.MAX_VALUE;
+
+        for(int k = 0; k <= targetSum / 2; k++) {
+            if(memoizationMatrix[noOfItems][k] == true) {
+                minimumDifference = Math.min(minimumDifference, Math.abs(sumOfAllItems - 2 * k));
+            }
+        }
+        
+        return minimumDifference;
     }
 
     public static void main(String[] args) {
-        int[] itemList = { 7, 2, 9, 3, 7 };
-        int targetSum = 14;
+        int[] itemList = { 0, 1, 2 };
 
-        System.out.println(subsetSum(itemList, targetSum));
+        System.out.println(minimumSubsetSumDifference(itemList));
     }
 }
