@@ -18,11 +18,9 @@ public class PrimsMinimumSpanningTree {
             visited[minWeightVertexIndex] = true;
 
             for (int j = 0; j < noOfVertices; j++) {
-                if (adjacencyMatrix[minWeightVertexIndex][j] != 0 && !visited[j]) {
-                    if (adjacencyMatrix[minWeightVertexIndex][j] < weightOfVisit[j]) {
-                        weightOfVisit[j] = adjacencyMatrix[minWeightVertexIndex][j];
-                        parentOfVisit[j] = minWeightVertexIndex;
-                    }
+                if (adjacencyMatrix[minWeightVertexIndex][j] != 0 && !visited[j] && adjacencyMatrix[minWeightVertexIndex][j] < weightOfVisit[j]) {
+                   weightOfVisit[j] = adjacencyMatrix[minWeightVertexIndex][j];
+                   parentOfVisit[j] = minWeightVertexIndex;
                 }
             }
         }
