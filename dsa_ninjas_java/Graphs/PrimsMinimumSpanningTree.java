@@ -13,7 +13,7 @@ public class PrimsMinimumSpanningTree {
         weightOfVisit[startVertex] = 0;
         parentOfVisit[startVertex] = -1;
 
-        for (int i = 0; i < noOfVertices; i++) {
+        for (int i = 0; i < noOfVertices - 1; i++) {
             int minWeightVertexIndex = findMinWeightVertex(weightOfVisit, visited);
             visited[minWeightVertexIndex] = true;
 

@@ -11,7 +11,7 @@ public class DijkstrasSingleSourceShortestPaths {
         Arrays.fill(totalDistanceOfVisit, Integer.MAX_VALUE);
         totalDistanceOfVisit[startVertex] = 0;
 
-        for (int i = 0; i < noOfVertices; i++) {
+        for (int i = 0; i < noOfVertices - 1; i++) {
             int minDistanceVertexIndex = findMinDistanceVertex(totalDistanceOfVisit, visited);
             visited[minDistanceVertexIndex] = true;
 
