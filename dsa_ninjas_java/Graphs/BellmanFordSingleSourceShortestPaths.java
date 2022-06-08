@@ -10,9 +10,13 @@ public class BellmanFordSingleSourceShortestPaths {
         Arrays.fill(totalDistanceOfVisit, Integer.MAX_VALUE);
         totalDistanceOfVisit[0] = 0;
 
-        for (int i = 1; i <= noOfVertices; i++) {
+        for (int i = 1; i <= noOfVertices - 1; i++) {
             for (int j = 0; j < edgeList.length; j++) {
+                if(totalDistanceOfVisit[edgeList[j].source] == Integer.MAX_VALUE)
+                    continue;
+
                 int totalDistanceOfVisitToNeighbour = totalDistanceOfVisit[edgeList[j].source] + edgeList[j].weight;
+                
                 if(totalDistanceOfVisitToNeighbour < totalDistanceOfVisit[edgeList[j].destination]) {
                     totalDistanceOfVisit[edgeList[j].destination] = totalDistanceOfVisitToNeighbour;
                 }
@@ -52,16 +56,17 @@ public class BellmanFordSingleSourceShortestPaths {
 /*
 7
 10
-0 1 6
-0 2 5
-0 3 5
-1 4 -1
+5 6 3
+4 6 3
 2 4 1
 3 2 -2
 2 1 -2
 3 5 -1
-5 6 3
-4 6 3
+1 4 -1
+0 3 5
+0 1 6
+0 2 5
+
 
 
 7
