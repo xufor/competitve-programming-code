@@ -1,6 +1,6 @@
 // BOTTOM UP APPROACH
 
-public class Knapsack01Iterative {
+public class Knapsack01Tabulation {
     private static int knapsack(int[] itemProfits, int[] itemWeights, int knapsackCapacity) {
         int noOfItems = itemProfits.length;
 
