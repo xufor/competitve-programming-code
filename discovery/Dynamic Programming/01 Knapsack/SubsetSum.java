@@ -7,7 +7,7 @@ public class SubsetSum {
         for (int k = 0; k <= noOfItems; k++)
         tabulationMatrix[k][0] = true;
         
-        // this loop is not needed as default values of boolean is already false
+        // this loop is not needed as default value of boolean is false
         // for (int k = 1; k <= targetSum; k++)
         // tabulationMatrix[0][k] = false;
 
