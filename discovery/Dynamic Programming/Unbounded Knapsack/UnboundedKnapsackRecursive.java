@@ -1,21 +1,20 @@
 public class UnboundedKnapsackRecursive {
     public static int knapsack(int[] itemProfits, int[] itemWeights, int knapsackCapacity, int currentItemIndex) {
-        int noOfItems = itemProfits.length;
-        if(knapsackCapacity < itemWeights[currentItemIndex])
+        if (currentItemIndex >= itemProfits.length || itemWeights[currentItemIndex] > knapsackCapacity)
             return 0;
-        else {
-            int currentMaxProfit = 0;
-            for(int i = 0; i < noOfItems; i++)
-                currentMaxProfit = itemProfits[i] + knapsack(itemProfits, itemWeights, knapsackCapacity - itemWeights[i], i);
-            return currentMaxProfit;
-        }
+        
+        int resultWhenIncludingCurrentItem = itemProfits[currentItemIndex] + knapsack(itemProfits, itemWeights, knapsackCapacity - itemWeights[currentItemIndex], currentItemIndex);
+        int resultWhenExcludingCurrentItem = knapsack(itemProfits, itemWeights, knapsackCapacity, currentItemIndex+1);
+        int optimalResult = Math.max(resultWhenExcludingCurrentItem, resultWhenIncludingCurrentItem);
+        
+        return optimalResult;
     }
 
     public static void main(String[] args) {
-        int[] itemWeights = new int[] { 3, 2, 4 };
-        int[] itemProfits = new int[] { 1, 2, 3 };
-        int knapsackCapacity = 5;
+        int[] itemWeights = new int[] { 7, 2, 3, 5, 6 };
+        int[] itemProfits = new int[] { 5, 4, 7, 1, 3 };
+        int knapsackCapacity = 10;
 
         System.out.println(knapsack(itemProfits, itemWeights, knapsackCapacity, 0));
     }
-} 
+}
