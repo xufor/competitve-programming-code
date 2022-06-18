@@ -1,18 +1,18 @@
 // TOP DOWN APPROACH
 
 public class Knapsack01RecursiveMemoized {
-    private static int knapsack(int[] itemProfits, int[] itemWeights, int knapsackCapacity, int currentItemIndex, int[][] memoizationMatrix) {
-        if(currentItemIndex >= itemProfits.length || itemWeights[currentItemIndex] > knapsackCapacity)
+    private static int knapsack(int[] itemProfits, int[] itemWeights, int knapsackCapacity, int itemsIncluded, int[][] memoizationMatrix) {
+        if(itemsIncluded < 1 || itemWeights[itemsIncluded-1] > knapsackCapacity)
             return 0;
 
-        if(memoizationMatrix[currentItemIndex+1][knapsackCapacity] != 0)
-            return memoizationMatrix[currentItemIndex+1][knapsackCapacity];
+        if(memoizationMatrix[itemsIncluded-1][knapsackCapacity] != 0)
+            return memoizationMatrix[itemsIncluded-1][knapsackCapacity];
         
-        int resultWhenIncludingCurrentItem = itemProfits[currentItemIndex] + knapsack(itemProfits, itemWeights, knapsackCapacity-itemWeights[currentItemIndex], currentItemIndex+1, memoizationMatrix);
-        int resultWhenExcludingCurrentItem = knapsack(itemProfits, itemWeights, knapsackCapacity, currentItemIndex+1, memoizationMatrix);
+        int resultWhenIncludingCurrentItem = itemProfits[itemsIncluded-1] + knapsack(itemProfits, itemWeights, knapsackCapacity-itemWeights[itemsIncluded-1], itemsIncluded-1, memoizationMatrix);
+        int resultWhenExcludingCurrentItem = knapsack(itemProfits, itemWeights, knapsackCapacity, itemsIncluded-1, memoizationMatrix);
         int optimalResult = Math.max(resultWhenExcludingCurrentItem, resultWhenIncludingCurrentItem);
 
-        memoizationMatrix[currentItemIndex+1][knapsackCapacity] = optimalResult;
+        memoizationMatrix[itemsIncluded-1][knapsackCapacity] = optimalResult;
 
         return optimalResult;
     }
@@ -25,6 +25,6 @@ public class Knapsack01RecursiveMemoized {
 
         int[][] memoizationMatrix = new int[noOfItems+1][knapsackCapacity+1];
 
-        System.out.println(knapsack(itemProfits, itemWeights, knapsackCapacity, 0, memoizationMatrix));
+        System.out.println(knapsack(itemProfits, itemWeights, knapsackCapacity, noOfItems, memoizationMatrix));
     }
 }
