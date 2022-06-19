@@ -45,7 +45,7 @@ public class CoinChangeMaxNumberOfWays {
     }
 
     public static int coinChangeAllCombinations2D(int[] coinProfits, int targetSum) {
-        // this algo uses 2D memoization array
+        // this algo uses 2D memoization matrix
         // this algo will give an anwer of 5 
         // this is because it creates all combinations
         // all the permutations are -> 11111, 1112, 113, 122, 23
