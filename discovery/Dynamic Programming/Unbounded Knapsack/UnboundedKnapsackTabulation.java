@@ -4,12 +4,12 @@ public class UnboundedKnapsackTabulation {
         int N = P.length;
         int[][] T = new int[N + 1][C + 1];
 
-        for(int i = 1; i <= N; i++) {
-            for(int j = 1; j <= C; j++) {
-                if(j >= W[i-1]) {
-                    T[i][j] = Math.max(P[i - 1] + T[i][j - W[i - 1]], T[i-1][j]); 
+        for (int i = 1; i <= N; i++) {
+            for (int j = 1; j <= C; j++) {
+                if (j >= W[i - 1]) {
+                    T[i][j] = Math.max(P[i - 1] + T[i][j - W[i - 1]], T[i - 1][j]);
                 } else {
-                    T[i][j] = T[i-1][j]; 
+                    T[i][j] = T[i - 1][j];
                 }
             }
         }
